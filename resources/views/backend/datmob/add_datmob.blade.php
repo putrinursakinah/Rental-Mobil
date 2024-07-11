@@ -19,11 +19,6 @@
                         <div class="col">
                             <label for="nama" class="form-label">Nama Mobil</label>
                             <input type="text" class="form-control" name="nama" required>
-                        
-                                <!-- <option selected>Pilih</option>
-                                <option value="Tim">Tim</option>
-                                <option value="Individu">Individu</option> -->
-                            <!-- </select> -->
                         </div>
                         <div class="col">
                             <label for="merk" class="form-label">Merk</label>
@@ -38,21 +33,11 @@
                             <input type="text" class="form-control" name="tahun_keluaran" required>
                         </div>
                         <div class="col">
-                            <label for="harga" class="form-label">Harga Sewa</label>
+                            <label for="harga" class="form-label">Harga</label>
                             <input type="text" class="form-control" name="harga" required>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="mb-3">
-                    <div class="row">
-                        <div class="col">
-                            <label for="gambar" class="form-label">Gambar</label>
-                            <input type="text" class="form-control" name="gambar" required>
-                        </div>
-                    </div>
-                </div>
-                </div>      -->
-            </div>
                 <button type="submit" class="btn btn-success">Submit</button>
                 <button onclick="history.back()" type="button" class="btn btn-danger">Batal</button>
             </form>
