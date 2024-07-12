@@ -51,7 +51,7 @@ Route::middleware([
     });
 });
 
-
+//DATPEN//
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -60,7 +60,7 @@ Route::middleware([
     Route::prefix('datpens')->group(function(){
         Route::get('/view', [DatpenController::class, 'index'])->name('datpen.view');
         Route::get('/add', [DatpenController::class, 'create'])->name('datpen.add');
-        // Route::post('/store', [DatmobController::class, 'store'])->name('datmob.store');
+        Route::post('/store', [DatpenController::class, 'store'])->name('datpen.store');
         // Route::get('/edit/{id}', [DatmobController::class, 'edit'])->name('datmob.edit');
         // Route::get('/update/{id}', [DatmobController::class, 'update'])->name('datmob.update');
         // Route::get('/delete/{id}',[DatmobController::class, 'delete'])->name('datmob.delete');
@@ -72,3 +72,24 @@ Route::middleware([
         // Route::get('/tambah-nilai/{id}', [AnggotaController::class, 'tambahnilai'])->name('nilai.tambah');
     });
 });
+
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified',
+// ])->group(function () {
+//     Route::prefix('datpens')->group(function(){
+//         Route::get('/view', [DatpenController::class, 'index'])->name('datpen.view');
+//         Route::get('/add', [DatpenController::class, 'create'])->name('datpen.add');
+//         // Route::post('/store', [DatmobController::class, 'store'])->name('datmob.store');
+//         // Route::get('/edit/{id}', [DatmobController::class, 'edit'])->name('datmob.edit');
+//         // Route::get('/update/{id}', [DatmobController::class, 'update'])->name('datmob.update');
+//         // Route::get('/delete/{id}',[DatmobController::class, 'delete'])->name('datmob.delete');
+//         // Route::get('/get', [AnggotaController::class, 'getData']);
+//         // Route::get('/edit-bukti/{id}', [DatmobController::class, 'editbukti'])->name('bukti.edit');
+//         // Route::post('/update-bukti/{id}', [DatmobController::class, 'updatebukti'])->name('bukti.update');
+//         // Route::get('/edit-nilai/{id}', [AnggotaController::class, 'editnilai'])->name('nilai.edit');
+//         // Route::post('/update-nilai/{id}', [AnggotaController::class, 'updatenilai'])->name('nilai.update');
+//         // Route::get('/tambah-nilai/{id}', [AnggotaController::class, 'tambahnilai'])->name('nilai.tambah');
+//     });
+// });
