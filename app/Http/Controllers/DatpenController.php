@@ -65,7 +65,9 @@ class DatpenController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $editpanitia = Datpen::find($id);
+        $editanggota = Anggota::find($id);
+        return view('backend.datpen.edit_datpen', compact('editpanitia', 'editanggota'));
     }
 
     /**
@@ -73,14 +75,52 @@ class DatpenController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = Datpen::find($id);
+        $data->nama = $request->nama;
+        $data->email = $request->email;
+        $data->notelp = $request->notelp;
+        $data->alamat = $request->alamat;
+        $data->merk_mobil = $request->merk_mobil;
+        $data->tgl_pinjam = $request->tgl_pinjam;
+        $data->tgl_selesai = $request->tgl_selesai;
+        $data->update();
+
+        foreach ($request->penyewa as $key => $penyewas) {
+            $datapen = new Anggota;
+            $datapen -> user_id = $penyewas;
+            $datapen -> datpens_id = $data->id;
+            $datapen->update();
     }
+    return redirect()->route('datpen.view');
+    }
+
+    public function editbuktidatpen($id){
+        $databukti = Datpen::find($id);
+        $dataguru = Anggota::find($id);
+        return view('backend.datpen.bukti_datpen', compact('databukti', 'dataguru'));
+}
+
+public function updatebuktidatpen(Request $request, $id){
+    $data = Datpen::find($id);
+    //$data->harga = $request->harga;
+    //$data->nama = $request->nama;
+    $data->email = $request->email;
+    $data->notelp = $request->notelp;
+    $data->alamat = $request->alamat;
+    $data->merk_mobil = $request->merk_mobil;
+    //$data->tgl_pinjam = $request->tgl_pinjam;
+    //$data->tgl_selesai = $request->tgl_selesai;
+    $data->save();
+    return redirect()->route('datpen.view');
+}
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $deleteData = Datpen::find($id);
+        $deleteData->delete();
+        return redirect()->route('datpen.view');
     }
 }
