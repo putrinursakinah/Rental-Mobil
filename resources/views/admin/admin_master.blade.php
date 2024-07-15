@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Rental Mobil - Putrins</title>
+    <title>Rental Mobil - 2024</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
