@@ -29,8 +29,8 @@ class DatmobController extends Controller
      */
     public function create()
     {
-         $anggota = DB::table('users')->get();
-        return view('backend.datmob.add_datmob', compact('anggota'));
+        //  $anggota = DB::table('users')->get();
+        return view('backend.datmob.add_datmob');
     }
 
     /**

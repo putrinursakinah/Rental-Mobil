@@ -8,7 +8,7 @@
                 <h1 class="h3 mb-2 text-gray-800">Data Mobil</h1>
             </div>
             <div class="co text-end mb-2">
-                <a href="{{route('datmob.add')}}"><button type="button" class="btn btn-primary">Tambah Data</button></a>
+                <a href="{{route('datmob2.add')}}"><button type="button" class="btn btn-primary">Tambah Data</button></a>
             </div>
         </div>
     </div>
@@ -35,7 +35,6 @@
                             <td>{{$datmob->merk}}</td>
                             <td>{{$datmob->tahun_keluaran}}</td>
                             <td>{{$datmob->harga}}</td>
-                            <!-- <td>{{$datmob->gambar}}</td> -->
                             <td><center>
                                 <a href="{{route('bukti.edit', $datmob->id)}}"><button type="button" class="btn"><i class="fa fa-upload"></i></button></a>
                                 
