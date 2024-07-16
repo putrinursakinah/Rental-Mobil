@@ -1,4 +1,5 @@
 @extends('admin.admin_master') 
+@section('title','Dashboard')
    @section('admin')
 
    <!-- Begin Page Content -->

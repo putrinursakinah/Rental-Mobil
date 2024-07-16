@@ -1,4 +1,5 @@
 @extends('admin.admin_master')
+@section('title','Edit Data Penyewa')
 @section('admin')
 <div class="container-fluid">
     <div class="container">
