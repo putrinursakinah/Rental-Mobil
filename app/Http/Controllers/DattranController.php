@@ -78,11 +78,14 @@ class DattranController extends Controller
                          ->with('success', 'Transaksi updated successfully.');
     }
 
-    public function destroy(Dattran $dattran)
+    public function destroy(string $id)
     {
-        $dattran->delete();
+        $deleteData = Dattran::find($id);
+        $deleteData->delete();
+        return redirect()->route('dattran.view');
+        // $dattran->delete();
 
-        return redirect()->route('dattran.index')
-                         ->with('success', 'Transaksi deleted successfully.');
+        // return redirect()->route('dattran.view')
+        //                  ->with('success', 'Transaksi deleted successfully.');
     }
 }

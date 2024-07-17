@@ -35,9 +35,10 @@
             </tr>
         </thead>
         <tbody>
+            <?php $no = 1; ?>
             @foreach ($data as $item =>$dattran)
                 <tr>
-                    <td>{{ $dattran->id }}</td>
+                    <td>{{ $no++ }}</td>
                     <td>{{ $dattran->nama_pelanggan }}</td>
                     <td>{{ $dattran->mobil }}</td>
                     <td>{{ $dattran->tanggal_pinjam }}</td>
