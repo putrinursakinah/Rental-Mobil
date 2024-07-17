@@ -62,16 +62,17 @@ Route::middleware([
     Route::prefix('datpens')->group(function(){
         Route::get('/view', [DatpenController::class, 'index'])->name('datpen.view');
         Route::get('/add', [DatpenController::class, 'create'])->name('datpen.add');
-        // Route::post('/store', [DatmobController::class, 'store'])->name('datmob.store');
-        // Route::get('/edit/{id}', [DatmobController::class, 'edit'])->name('datmob.edit');
-        // Route::get('/update/{id}', [DatmobController::class, 'update'])->name('datmob.update');
-        // Route::get('/delete/{id}',[DatmobController::class, 'delete'])->name('datmob.delete');
-        // Route::get('/get', [AnggotaController::class, 'getData']);
-        // Route::get('/edit-bukti/{id}', [DatmobController::class, 'editbukti'])->name('bukti.edit');
-        // Route::post('/update-bukti/{id}', [DatmobController::class, 'updatebukti'])->name('bukti.update');
-        // Route::get('/edit-nilai/{id}', [AnggotaController::class, 'editnilai'])->name('nilai.edit');
-        // Route::post('/update-nilai/{id}', [AnggotaController::class, 'updatenilai'])->name('nilai.update');
-        // Route::get('/tambah-nilai/{id}', [AnggotaController::class, 'tambahnilai'])->name('nilai.tambah');
+        Route::post('/store', [DatpenController::class, 'store'])->name('datmob.store');
+        Route::get('/edit/{id}', [DatpenController::class, 'edit'])->name('datmob.edit');
+        Route::get('/update/{id}', [DatpenController::class, 'update'])->name('datmob.update');
+        Route::get('/delete/{id}',[DatpenController::class, 'delete'])->name('datmob.delete');
+        Route::get('/get', [AnggotaController::class, 'getData']);
+        Route::get('/edit-bukti/{id}', [DatpenController::class, 'editbuktidatpen'])->name('buktidatpen.edit');
+        Route::post('/update-bukti/{id}', [DatpenController::class, 'updatebuktidatpen'])->name('buktidatpen.update');
+        Route::get('/edit-nilai/{id}', [AnggotaController::class, 'editnilaidatpen'])->name('nilaidatpen.edit');
+        Route::post('/update-nilai/{id}', [AnggotaController::class, 'updatenilaidatpen'])->name('nilaidatpen.update');
+        Route::get('/tambah-nilai/{id}', [AnggotaController::class, 'tambahnilaidatpen'])->name('nilaidatpen.tambah');
+        Route::get('/delete/{id}', [DatpenController::class, 'destroy'])->name('datpen.delete');
     });
 });
 
