@@ -83,6 +83,6 @@ Route::middleware([
         Route::post('/store', [DattranController::class, 'store'])->name('dattran.store');
         Route::get('/edit/{id}', [DattranController::class, 'edit'])->name('dattran.edit');
         Route::post('/update/{id}', [DattranController::class, 'update'])->name('dattran.update');
-        Route::get('/delete/{id}',[DattranController::class, 'delete'])->name('dattran.delete');
+        Route::get('/delete/{id}',[DattranController::class, 'destroy'])->name('dattran.delete');
     
 });
