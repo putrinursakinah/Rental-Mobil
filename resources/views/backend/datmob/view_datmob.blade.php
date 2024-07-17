@@ -36,13 +36,10 @@
                             <td>{{$datmob->merk}}</td>
                             <td>{{$datmob->tahun_keluaran}}</td>
                             <td>{{$datmob->harga}}</td>
-                            <!-- <td>{{$datmob->gambar}}</td> -->
                             <td><center>
                                 <a href="{{route('bukti.edit', $datmob->id)}}"><button type="button" class="btn"><i class="fa fa-upload"></i></button></a>
-                                
-                                <a href="{{route('datmob.delete', $datmob->id)}}" id="delete" class="btn"><i class="fa fa-trash-o"></i></a>
+                            
                                 </center>
-                            </td>
                         @endforeach
                     </tbody>
                 </table> 

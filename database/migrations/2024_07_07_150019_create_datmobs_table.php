@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('merk');
             $table->string('tahun_keluaran');
-            $table->decimal('harga', 15, 2)->default(0);
+            $table->decimal('harga', 15, 3)->default(0);
             $table->timestamps();
         });
     }
