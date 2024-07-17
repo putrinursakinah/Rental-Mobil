@@ -1,4 +1,5 @@
 @extends('admin.admin_master')
+@section('title','Data Mobil2')
 @section('admin')
 
 <div class="container-fluid">
