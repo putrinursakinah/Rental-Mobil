@@ -32,7 +32,7 @@
 
     <li class="{{'datpens/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
         <a class="nav-link collapsed" href="{{url('/datpens/view')}}">
-            </i><i class="fas fa-solid fa-car"></i>
+            </i><i class="fas fa-solid fa-users"></i>
             <span>Data Penyewa</span>
         </a>
     </li>
