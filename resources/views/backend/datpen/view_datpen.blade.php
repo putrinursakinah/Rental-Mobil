@@ -2,12 +2,7 @@
 @section('title','Data Penyewa')
 @section('admin')
 <div class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1 class="h3 mb-2 text-gray-800">Data Penyewa</h1>
-            </div>
-            @if (session('message'))
+    @if (session('message'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('message') }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -15,6 +10,13 @@
                 </button>
             </div>
             @endif
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="h3 mb-2 text-gray-800">Data Penyewa</h1>
+            </div>
+            
+            
 
             <div class="co text-end mb-2">
                 <a href="{{route('datpen.add')}}"><button type="button" class="btn btn-primary">Tambah Data</button></a>
