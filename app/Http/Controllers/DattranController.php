@@ -2,87 +2,112 @@
 
 namespace App\Http\Controllers;
 use App\Models\Anggota;
-use App\Models\Dattran;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Dattran;
 
 class DattranController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        if (Auth::user()->id=='1'){
-            $data = Dattran::all();
-            return view('backend.dattran.index', ['data' => $data]);
+        if(Auth::user()->id=='1'){
+        $data = Dattran::all();
+        return view('backend.dattran.view_dattran', ['data' => $data]);
     } else {
         $user = Auth::user()->id;
-        $data = Anggota::where('user_id', $user)->get();
-        return view('backend.dattran.index', ['data' => $data]);
+        $data = Dattran::all();
+        return view('backend.dattran.view_dattran2', ['data' => $data]);
     }
 }
+
+    /**
+     * Show the form for creating a new resource.
+     */
     public function create()
     {
-        $anggota = DB::table("users")->get();
-        return view('backend.dattran.create', compact('anggota'));
+        return view('backend.dattran.add_dattran');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
         $data = new Dattran();
-        $data->nama_pelanggan = $request->nama_pelanggan;
-        $data->mobil = $request->mobil;
-        $data->tanggal_pinjam = $request->tanggal_pinjam;
-        $data->tanggal_kembali = $request->tanggal_kembali;
+        $data->nama = $request->nama;
+        $data->merk = $request->merk;
+        $data->tgl_pinjam = $request->tgl_pinjam;
+        $data->tgl_kembali = $request->tgl_kembali;
         $data->harga = $request->harga;
         $data->save();
 
         return redirect()->route('dattran.view');
-
-        // $request->validate([
-        //     'nama_pelanggan' => 'required',
-        //     'mobil' => 'required',
-        //     'tanggal_pinjam' => 'required|date',
-        //     'tanggal_kembali' => 'required|date',
-        //     'harga' => 'required|numeric',
-        // ]);
-
-        // Dattran::create($request->all());
-
-        // return redirect()->route('dattran.index')
-        //                  ->with('success', 'Transaksi created successfully.');
     }
 
-    public function show(Dattran $transaksi)
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
     {
-        return view('dattran.show', compact('dattran'));
+        //
     }
 
-    public function edit(Dattran $transaksi)
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
     {
-        return view('dattran.edit', compact('dattran'));
+        $editpanitia = Dattran::find($id);
+        $editanggota = Anggota::find($id);
+        return view('backend.dattran.edit_dattran', compact('editpanitia', 'editanggota'));
     }
 
-    public function update(Request $request, Dattran $dattran)
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
     {
-        $request->validate([
-            'nama_pelanggan' => 'required',
-            'mobil' => 'required',
-            'tanggal_pinjam' => 'required|date',
-            'tanggal_kembali' => 'required|date',
-            'harga' => 'required|numeric',
-        ]);
+        $data = Dattran::find($id);
+        $data->nama = $request->nama;
+        $data->merk = $request->merk;
+        $data->tgl_pinjam = $request->tgl_pinjam;
+        $data->tgl_kembali = $request->tgl_kembali;
+        $data->harga = $request->harga;
+        $data->update();
 
-        $dattran->update($request->all());
-
-        return redirect()->route('dattran.index')
-                         ->with('success', 'Transaksi updated successfully.');
+        foreach ($request->transaksi as $key => $transaksis) {
+            $dataTransaksi = new Anggota;
+            $dataTransaksi -> user_id = $transaksis;
+            $dataTransaksi -> dattrans_id = $data->id;
+            $dataTransaksi->update();
     }
+    return redirect()->route('dattran.view');
+}
 
-    public function destroy(Dattran $dattran)
+    public function editbukti($id){
+        $databukti = Dattran::find($id);
+        $dataguru = Anggota::find($id);
+        return view('backend.dattran.bukti_dattran', compact('databukti', 'dataguru'));
+}
+
+    public function updatebukti(Request $request, $id){
+        $data = Dattran::find($id);
+        $data->tgl_pinjam = $request->tgl_pinjam;
+        $data->tgl_kembali = $request->tgl_kembali;
+        $data->save();
+        return redirect()->route('dattran.view');
+}
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
     {
-        $dattran->delete();
-
-        return redirect()->route('dattran.index')
-                         ->with('success', 'Transaksi deleted successfully.');
+        $deleteData = Dattran::find($id);
+        $deleteData->delete();
+        return redirect()->route('dattran.view');
     }
 }
