@@ -25,7 +25,6 @@
                             <th><center>Merk</center></th>
                             <th><center>Tahun Keluaran</center></th>
                             <th><center>Harga sewa</center></th>
-                            <th><center>Aksi</center></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,12 +33,8 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$datmob->nama}}</td>
                             <td>{{$datmob->merk}}</td>
-                            <td>{{$datmob->tahun_keluran}}</td>
+                            <td>{{$datmob->tahun_keluaran}}</td>
                             <td>{{$datmob->harga}}</td>
-                            <td><center>
-                                <a href="{{route('bukti.edit', $datmob->id)}}"><button type="button" class="btn"><i class="fa fa-upload"></i></button></a>
-                            
-                                </center>
                             </td>
                         @endforeach
                     </tbody>

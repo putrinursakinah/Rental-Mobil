@@ -14,8 +14,14 @@ class DatmobController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->id=='1'){
             $data = Datmob::all();
             return view('backend.datmob.view_datmob', ['data' => $data]);
+      } else {
+            $user = Auth::user()->id;
+            $data = Datmob::all();
+            return view('backend.datmob.view_datmob2', ['data' => $data]);
+      }
        
 }
 
