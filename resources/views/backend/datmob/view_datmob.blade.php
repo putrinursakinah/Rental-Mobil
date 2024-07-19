@@ -37,8 +37,8 @@
                             <td>{{$datmob->tahun_keluaran}}</td>
                             <td>{{$datmob->harga}}</td>
                             <td><center>
-                                <a href="{{route('bukti.edit', $datmob->id)}}"><button type="button" class="btn"><i class="fa fa-upload"></i></button></a>
-                            
+                                <a href="{{route('bukti.edit', $datmob->id)}}"><button type="button" class="btn btn-warning btn-sm">Edit<i class="fa fa-upload"></i></button></a>
+                                <a href="{{route('datmob.delete', $datmob->id)}}" class="btn btn-danger btn-sm">Delete<i class="fas fa-trash"></i></a>
                                 </center>
                         @endforeach
                     </tbody>
