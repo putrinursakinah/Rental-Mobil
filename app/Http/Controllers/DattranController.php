@@ -14,8 +14,8 @@ class DattranController extends Controller
     public function index()
     {
         if(Auth::user()->id=='1'){
-        $data = Dattran::all();
-        return view('backend.dattran.view_dattran', ['data' => $data]);
+            $data = Dattran::all();
+            return view('backend.dattran.view_dattran', ['data' => $data]);
     } else {
         $user = Auth::user()->id;
         $data = Dattran::all();
@@ -93,20 +93,12 @@ class DattranController extends Controller
         return view('backend.dattran.bukti_dattran', compact('databukti', 'dataguru'));
 }
 
-    public function update(Request $request, Dattran $dattran)
-    {
-        $request->validate([
-            'nama_pelanggan' => 'required',
-            'mobil' => 'required',
-            'tanggal_pinjam' => 'required|date',
-            'tanggal_kembali' => 'required|date',
-            'harga' => 'required|numeric',
-        ]);
-
-        $dattran->update($request->all());
-
-        return redirect()->route('dattran.index')
-                         ->with('success', 'Transaksi updated successfully.');
+    public function updatebukti(Request $request, $id){
+        $data = Dattran::find($id);
+        $data->tgl_pinjam = $request->tgl_pinjam;
+        $data->tgl_kembali = $request->tgl_kembali;
+        $data->save();
+        return redirect()->route('dattran.view');
     }
 
     public function destroy(string $id)
@@ -114,9 +106,5 @@ class DattranController extends Controller
         $deleteData = Dattran::find($id);
         $deleteData->delete();
         return redirect()->route('dattran.view');
-        // $dattran->delete();
-
-        // return redirect()->route('dattran.view')
-        //                  ->with('success', 'Transaksi deleted successfully.');
     }
 }

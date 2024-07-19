@@ -31,13 +31,13 @@
                     <div class="row">
                         <div class="col">
                             <label for="tgl_pinjam" class="form-label">Tanggal Pinjam</label>
-                            <input type="text" class="form-control" name="tgl_pinjam" value="{{$editpanitia->tgl_pinjam}}" disabled>
+                            <input type="datetime-local" class="form-control" name="tgl_pinjam" value="{{$editpanitia->tgl_pinjam}}" disabled>
                         </div>
                     </div>
                 </div>
                     <div class="col">
                         <label for="tgl_kembali" class="form-label">Tanggal Kembali</label>
-                        <input type="text" class="form-control" name="tgl_kembali" value="{{$editpanitia->tgl_kembali}}" disabled>
+                        <input type="datetime-local" class="form-control" name="tgl_kembali" value="{{$editpanitia->tgl_kembali}}" disabled>
                     </div>
                     <div class="row">
                         <div class="col">
