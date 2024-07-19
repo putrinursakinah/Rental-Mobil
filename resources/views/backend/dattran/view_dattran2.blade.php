@@ -26,7 +26,6 @@
                             <th><center>Tanggal Pinjam</center></th>
                             <th><center>Tanggal Kembali</center></th>
                             <th><center>Harga</center></th>
-                            <th><center>Aksi</center></th>
                         </tr>
                     </thead>
 
@@ -38,10 +37,10 @@
                             <td>{{$dattran->tgl_pinjam}}</td>
                             <td>{{$dattran->tgl_kembali}}</td>
                             <td>{{$dattran->harga}}</td>
-                            <td><center>
+                            {{-- <td><center>
                                 <a href="{{route('bukti.edit', $dattran->id)}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"> Edit</i></a>
                                 <a href="{{route('dattran.delete', $dattran->id)}}" class="btn btn-danger btn-sm"><i class="fas fa-trash"> Delete</i></a>
-                                </center>
+                                </center> --}}
                         @endforeach
                     </tbody>
                 </table> 
