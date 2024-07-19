@@ -93,21 +93,27 @@ class DattranController extends Controller
         return view('backend.dattran.bukti_dattran', compact('databukti', 'dataguru'));
 }
 
-    public function updatebukti(Request $request, $id){
-        $data = Dattran::find($id);
-        $data->tgl_pinjam = $request->tgl_pinjam;
-        $data->tgl_kembali = $request->tgl_kembali;
-        $data->save();
-        return redirect()->route('dattran.view');
-}
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function update(Request $request, Dattran $dattran)
     {
-        $deleteData = Dattran::find($id);
-        $deleteData->delete();
-        return redirect()->route('dattran.view');
+        $request->validate([
+            'nama_pelanggan' => 'required',
+            'mobil' => 'required',
+            'tanggal_pinjam' => 'required|date',
+            'tanggal_kembali' => 'required|date',
+            'harga' => 'required|numeric',
+        ]);
+
+        $dattran->update($request->all());
+
+        return redirect()->route('dattran.index')
+                         ->with('success', 'Transaksi updated successfully.');
+    }
+
+    public function destroy(Dattran $dattran)
+    {
+        $dattran->delete();
+
+        return redirect()->route('dattran.index')
+                         ->with('success', 'Transaksi deleted successfully.');
     }
 }

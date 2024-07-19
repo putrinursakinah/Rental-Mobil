@@ -32,7 +32,7 @@
 
     <li class="{{'datpens/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
         <a class="nav-link collapsed" href="{{url('/datpens/view')}}">
-            </i><i class="fas fa-solid fa-car"></i>
+            </i><i class="fas fa-solid fa-users"></i>
             <span>Data Penyewa</span>
         </a>
     </li>
@@ -53,5 +53,12 @@
             <i class="fas fa-solid fa-door-closed"></i>
         <span>Log Out</span></a>
     </li>
+
+    <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
 </ul>
 <!-- End of Sidebar -->
