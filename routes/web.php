@@ -39,7 +39,7 @@ Route::middleware([
     Route::prefix('datmobs')->group(function(){
         Route::get('/view', [DatmobController::class, 'index'])->name('datmob.view');
         Route::get('/add', [DatmobController::class, 'create'])->name('datmob.add');
-        // Route::get('/add', [DatmobController::class, 'create'])->name('datmob2.add');
+        Route::get('/add', [DatmobController::class, 'create'])->name('datmob2.add');
         Route::post('/store', [DatmobController::class, 'store'])->name('datmob.store');
         Route::get('/edit/{id}', [DatmobController::class, 'edit'])->name('datmob.edit');
         Route::get('/update/{id}', [DatmobController::class, 'update'])->name('datmob.update');
