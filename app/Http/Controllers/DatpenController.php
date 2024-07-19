@@ -93,6 +93,7 @@ class DatpenController extends Controller
             $datapen->update();
     }
     return redirect()->route('datpen.view');
+    
     }
 
     public function editbuktidatpen($id){
@@ -112,7 +113,8 @@ public function updatebuktidatpen(Request $request, $id){
     //$data->tgl_pinjam = $request->tgl_pinjam;
     //$data->tgl_selesai = $request->tgl_selesai;
     $data->save();
-    return redirect()->route('datpen.view');
+    //return redirect()->route('datpen.view');
+    return redirect()->route('datpen.view')->with('message', 'Data Berhasil Diedit');
 }
 
     /**
