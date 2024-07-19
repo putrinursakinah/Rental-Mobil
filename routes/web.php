@@ -39,7 +39,7 @@ Route::middleware([
     Route::prefix('datmobs')->group(function(){
         Route::get('/view', [DatmobController::class, 'index'])->name('datmob.view');
         Route::get('/add', [DatmobController::class, 'create'])->name('datmob.add');
-        // Route::get('/add', [DatmobController::class, 'create'])->name('datmob2.add');
+        Route::get('/add', [DatmobController::class, 'create'])->name('datmob2.add');
         Route::post('/store', [DatmobController::class, 'store'])->name('datmob.store');
         Route::get('/edit/{id}', [DatmobController::class, 'edit'])->name('datmob.edit');
         Route::get('/update/{id}', [DatmobController::class, 'update'])->name('datmob.update');
@@ -76,3 +76,14 @@ Route::middleware([
         Route::get('/delete/{id}', [DatpenController::class, 'destroy'])->name('datpen.delete');
     });
 });
+
+//     Route::prefix('dattrans')->group(function(){
+//         Route::get('/dattran/create', [DattranController::class, 'create'])->name('dattran.create');
+//         Route::get('/view', [DattranController::class, 'index'])->name('dattran.view');
+//         //Route::get('/add', [DattranController::class, 'create'])->name('dattran.add');
+//         Route::post('/store', [DattranController::class, 'store'])->name('dattran.store');
+//         Route::get('/edit/{id}', [DattranController::class, 'edit'])->name('dattran.edit');
+//         Route::post('/update/{id}', [DattranController::class, 'update'])->name('dattran.update');
+//         Route::get('/delete/{id}',[DattranController::class, 'destroy'])->name('dattran.delete');
+    
+// });
