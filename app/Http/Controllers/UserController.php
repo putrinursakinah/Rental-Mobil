@@ -43,7 +43,7 @@ class UserController extends Controller
         $data = new Users();
         $data->name = $request->name;
         $data->email = $request->email;
-        $data->password = $request->password;
+        $data->password = bcrypt($request->password);
         $data->save();
 
         //return redirect()->route('datpen.view');
@@ -100,7 +100,7 @@ public function updatebuktiuser(Request $request, $id){
     //$data->nama = $request->nama;
     //$data->name = $request->name;
     //$data->email = $request->email;
-    $data->password = $request->password;
+    $data->password = bcrypt($request->password);
     //$data->tgl_pinjam = $request->tgl_pinjam;
     //$data->tgl_selesai = $request->tgl_selesai;
     $data->save();
