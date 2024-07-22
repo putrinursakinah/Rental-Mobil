@@ -24,6 +24,7 @@ class UserController extends Controller
         $data = Anggota::where('user_id', $user)->get();
         return view('backend.user.view_user', ['data' => $data]);
     }
+    
     }
 
     /**
