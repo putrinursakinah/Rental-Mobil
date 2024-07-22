@@ -106,27 +106,3 @@ Route::middleware([
         Route::get('/delete/{id}', [DattranController::class, 'destroy'])->name('dattran.delete');
     });
 });
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::prefix('users')->group(function(){
-        Route::get('/view', [UserController::class, 'index'])->name('user.view');
-        Route::get('/add', [UserController::class, 'create'])->name('user.add');
-        Route::get('/add2', [UserController::class, 'create'])->name('user2.add');
-        Route::post('/store', [UserController::class, 'store'])->name('user.store');
-        Route::get('/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
-        Route::get('/update/{id}', [UserController::class, 'update'])->name('user.update');
-        Route::get('/delete/{id}',[UserController::class, 'delete'])->name('user.delete');
-        Route::get('/get', [AnggotaController::class, 'getData']);
-        Route::get('/edit-bukti/{id}', [UserController::class, 'editbuktiuser'])->name('buktiuser.edit');
-        Route::post('/update-bukti/{id}', [UserController::class, 'updatebuktiuser'])->name('buktiuser.update');
-        Route::get('/edit-nilai/{id}', [AnggotaController::class, 'editnilaiuser'])->name('nilaiuser.edit');
-        Route::post('/update-nilai/{id}', [AnggotaController::class, 'updatenilaiuser'])->name('nilaiuser.update');
-        Route::get('/tambah-nilai/{id}', [AnggotaController::class, 'tambahnilaiuser'])->name('nilaiuser.tambah');
-        Route::get('/delete/{id}', [UserController::class, 'destroy'])->name('user.delete');
-        //Route::get('/dashboard2', [DatpenController::class, 'indexDashboard'])->name('dashboard2.view');
-    });
-});
