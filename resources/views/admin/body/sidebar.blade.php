@@ -19,8 +19,15 @@
             <span>Dashboard</span></a>
     </li>
 
+    <li class="{{'user' == request()->path() ? 'nav-item active' : 'nav-item'}}">
+        <a class="nav-link" href="{{url('/users/view')}}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Data User</span></a>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider">
+
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="{{'datmobs/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
@@ -29,6 +36,7 @@
             <span>Data Mobil</span>
         </a>
     </li>
+    <hr class="sidebar-divider d-none d-md-block">
 
     <li class="{{'datpens/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
         <a class="nav-link collapsed" href="{{url('/datpens/view')}}">
@@ -36,6 +44,7 @@
             <span>Data Penyewa</span>
         </a>
     </li>
+    <hr class="sidebar-divider d-none d-md-block">
 
     <li class="{{'dattrans/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
         <a class="nav-link collapsed" href="{{url('/dattrans/view')}}">
@@ -43,6 +52,9 @@
             <span>Data Transaksi</span>
         </a>
     </li>
+    <hr class="sidebar-divider d-none d-md-block">
+
+    
 
     <!-- Nav Item - Charts -->
     <li class="nav-item ">

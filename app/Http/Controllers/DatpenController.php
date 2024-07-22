@@ -21,7 +21,7 @@ class DatpenController extends Controller
     } else {
         $user = Auth::user()->id;
         $data = Anggota::where('user_id', $user)->get();
-        return view('backend.datpen.view_datpen', ['data' => $data]);
+        return view('backend.datpen.view_datpen2', ['data' => $data]);
     }
     }
 
@@ -126,5 +126,17 @@ public function updatebuktidatpen(Request $request, $id){
         $deleteData->delete();
         //return redirect()->route('datpen.view');
         return redirect()->route('datpen.view')->with('message', 'Data Berhasil Dihapus');
+    }
+
+    public function indexDashboard()
+    {
+        if(Auth::user()->id=='1'){
+            $data = Datpen::all();
+            return view('admin.dashboard', ['data' => $data]);
+    } else {
+        $user = Auth::user()->id;
+        $data = Anggota::where('user_id', $user)->get();
+        return view('admin.dashboard2', ['data' => $data]);
+    }
     }
 }

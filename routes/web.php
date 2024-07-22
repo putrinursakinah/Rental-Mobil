@@ -29,6 +29,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('admin.index');
     });
+    Route::get('/dashboard2', function () {
+        return view('admin.index2');
+    });
 });
 
 Route::middleware([
@@ -39,7 +42,7 @@ Route::middleware([
     Route::prefix('datmobs')->group(function(){
         Route::get('/view', [DatmobController::class, 'index'])->name('datmob.view');
         Route::get('/add', [DatmobController::class, 'create'])->name('datmob.add');
-        Route::get('/add', [DatmobController::class, 'create'])->name('datmob2.add');
+        Route::get('/add2', [DatmobController::class, 'create'])->name('datmob2.add');
         Route::post('/store', [DatmobController::class, 'store'])->name('datmob.store');
         Route::get('/edit/{id}', [DatmobController::class, 'edit'])->name('datmob.edit');
         Route::get('/update/{id}', [DatmobController::class, 'update'])->name('datmob.update');
@@ -63,6 +66,7 @@ Route::middleware([
     Route::prefix('datpens')->group(function(){
         Route::get('/view', [DatpenController::class, 'index'])->name('datpen.view');
         Route::get('/add', [DatpenController::class, 'create'])->name('datpen.add');
+        Route::get('/add2', [DatpenController::class, 'create'])->name('datpen2.add');
         Route::post('/store', [DatpenController::class, 'store'])->name('datpen.store');
         Route::get('/edit/{id}', [DatpenController::class, 'edit'])->name('datpen.edit');
         Route::get('/update/{id}', [DatpenController::class, 'update'])->name('datpen.update');
@@ -74,6 +78,7 @@ Route::middleware([
         Route::post('/update-nilai/{id}', [AnggotaController::class, 'updatenilaidatpen'])->name('nilaidatpen.update');
         Route::get('/tambah-nilai/{id}', [AnggotaController::class, 'tambahnilaidatpen'])->name('nilaidatpen.tambah');
         Route::get('/delete/{id}', [DatpenController::class, 'destroy'])->name('datpen.delete');
+        Route::get('/dashboard2', [DatpenController::class, 'indexDashboard'])->name('dashboard2.view');
     });
 });
 
