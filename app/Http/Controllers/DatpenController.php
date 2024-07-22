@@ -128,15 +128,15 @@ public function updatebuktidatpen(Request $request, $id){
         return redirect()->route('datpen.view')->with('message', 'Data Berhasil Dihapus');
     }
 
-    public function indexDashboard()
-    {
-        if(Auth::user()->id=='1'){
-            $data = Datpen::all();
-            return view('admin.dashboard', ['data' => $data]);
-    } else {
-        $user = Auth::user()->id;
-        $data = Anggota::where('user_id', $user)->get();
-        return view('admin.dashboard2', ['data' => $data]);
-    }
-    }
+    // public function indexDashboard()
+    // {
+    //     if(Auth::user()->id=='1'){
+    //         $data = Datpen::all();
+    //         return view('admin.dashboard', ['data' => $data]);
+    // } else {
+    //     $user = Auth::user()->id;
+    //     $data = Anggota::where('user_id', $user)->get();
+    //     return view('admin.dashboard2', ['data' => $data]);
+    // }
+    // }
 }

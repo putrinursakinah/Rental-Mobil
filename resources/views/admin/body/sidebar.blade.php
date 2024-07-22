@@ -19,7 +19,7 @@
             <span>Dashboard</span></a>
     </li>
 
-    <li class="{{'user' == request()->path() ? 'nav-item active' : 'nav-item'}}">
+    <li class="{{'users/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
         <a class="nav-link" href="{{url('/users/view')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Data User</span></a>
