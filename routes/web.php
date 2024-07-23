@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DatmobController;
 use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DatpenController;
 use App\Http\Controllers\DattranController;
 use App\Http\Controllers\UserController;
-use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -31,10 +32,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('admin.index');
     });
-    Route::get('/dashboard2', function () {
-        return view('admin.index2');
-    });
 });
+
+
 
 Route::middleware([
     'auth:sanctum',
@@ -44,7 +44,6 @@ Route::middleware([
     Route::prefix('datmobs')->group(function(){
         Route::get('/view', [DatmobController::class, 'index'])->name('datmob.view');
         Route::get('/add', [DatmobController::class, 'create'])->name('datmob.add');
-        Route::get('/add2', [DatmobController::class, 'create'])->name('datmob2.add');
         Route::post('/store', [DatmobController::class, 'store'])->name('datmob.store');
         Route::get('/edit/{id}', [DatmobController::class, 'edit'])->name('datmob.edit');
         Route::get('/update/{id}', [DatmobController::class, 'update'])->name('datmob.update');
@@ -84,13 +83,48 @@ Route::middleware([
     });
 });
 
-//     Route::prefix('dattrans')->group(function(){
-//         Route::get('/dattran/create', [DattranController::class, 'create'])->name('dattran.create');
-//         Route::get('/view', [DattranController::class, 'index'])->name('dattran.view');
-//         //Route::get('/add', [DattranController::class, 'create'])->name('dattran.add');
-//         Route::post('/store', [DattranController::class, 'store'])->name('dattran.store');
-//         Route::get('/edit/{id}', [DattranController::class, 'edit'])->name('dattran.edit');
-//         Route::post('/update/{id}', [DattranController::class, 'update'])->name('dattran.update');
-//         Route::get('/delete/{id}',[DattranController::class, 'destroy'])->name('dattran.delete');
-    
-// });
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::prefix('users')->group(function(){
+        Route::get('/view', [UserController::class, 'index'])->name('user.view');
+        Route::get('/add', [UserController::class, 'create'])->name('user.add');
+        Route::get('/add2', [UserController::class, 'create'])->name('user2.add');
+        Route::post('/store', [UserController::class, 'store'])->name('user.store');
+        Route::get('/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+        Route::get('/update/{id}', [UserController::class, 'update'])->name('user.update');
+        Route::get('/delete/{id}',[UserController::class, 'delete'])->name('user.delete');
+        Route::get('/get', [AnggotaController::class, 'getData']);
+        Route::get('/edit-bukti/{id}', [UserController::class, 'editbuktiuser'])->name('buktiuser.edit');
+        Route::post('/update-bukti/{id}', [UserController::class, 'updatebuktiuser'])->name('buktiuser.update');
+        Route::get('/edit-nilai/{id}', [AnggotaController::class, 'editnilaiuser'])->name('nilaiuser.edit');
+        Route::post('/update-nilai/{id}', [AnggotaController::class, 'updatenilaiuser'])->name('nilaiuser.update');
+        Route::get('/tambah-nilai/{id}', [AnggotaController::class, 'tambahnilaiuser'])->name('nilaiuser.tambah');
+        Route::get('/delete/{id}', [UserController::class, 'destroy'])->name('user.delete');
+    });
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::prefix('dattrans')->group(function(){
+        Route::get('/view', [DattranController::class, 'index'])->name('dattran.view');
+        Route::get('/add', [DattranController::class, 'create'])->name('dattran.add');
+        Route::post('/store', [DattranController::class, 'store'])->name('dattran.store');
+        Route::get('/edit/{id}', [DattranController::class, 'edit'])->name('dattran.edit');
+        Route::get('/update/{id}', [DattranController::class, 'update'])->name('dattran.update');
+        Route::get('/delete/{id}',[DattranController::class, 'delete'])->name('dattran.delete');
+        Route::get('/get', [AnggotaController::class, 'getData']);
+        Route::get('/edit-bukti/{id}', [DattranController::class, 'editbuktidattran'])->name('buktidattran.edit');
+        Route::post('/update-bukti/{id}', [DattranController::class, 'updatebuktidattran'])->name('buktidattran.update');
+        Route::get('/edit-nilai/{id}', [AnggotaController::class, 'editnilaidattran'])->name('nilaidattran.edit');
+        Route::post('/update-nilai/{id}', [AnggotaController::class, 'updatenilaidattran'])->name('nilaidattran.update');
+        Route::get('/tambah-nilai/{id}', [AnggotaController::class, 'tambahnilaidattran'])->name('nilaidattran.tambah');
+        Route::get('/delete/{id}', [DattranController::class, 'destroy'])->name('dattran.delete');
+    });
+});
