@@ -44,7 +44,7 @@ class DattranController extends Controller
         $data->harga = $request->harga;
         $data->save();
 
-        return redirect()->route('dattran.view');
+        return redirect()->route('dattran.view')->with('message', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -87,24 +87,24 @@ class DattranController extends Controller
     return redirect()->route('dattran.view');
 }
 
-    public function editbukti($id){
+    public function editbuktidattran($id){
         $databukti = Dattran::find($id);
         $dataguru = Anggota::find($id);
         return view('backend.dattran.bukti_dattran', compact('databukti', 'dataguru'));
 }
 
-    public function updatebukti(Request $request, $id){
+    public function updatebuktidattran(Request $request, $id){
         $data = Dattran::find($id);
         $data->tgl_pinjam = $request->tgl_pinjam;
         $data->tgl_kembali = $request->tgl_kembali;
         $data->save();
-        return redirect()->route('dattran.view');
+        return redirect()->route('dattran.view')->with('message', 'Data Berhasil Diedit');
     }
 
     public function destroy(string $id)
     {
         $deleteData = Dattran::find($id);
         $deleteData->delete();
-        return redirect()->route('dattran.view');
+        return redirect()->route('dattran.view')->with('message', 'Data Berhasil Dihapus');
     }
 }

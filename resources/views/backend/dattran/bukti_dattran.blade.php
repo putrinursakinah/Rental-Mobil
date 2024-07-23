@@ -1,4 +1,5 @@
 @extends('admin.admin_master')
+@section('title',' Edit Penyewa')
 @section('admin')
 
 <div class="container-fluid">
@@ -12,7 +13,7 @@
     <br>
     <div class="card shadow mb-4">
         <div class="card-body">
-        <form method="POST" action="{{ route('bukti.update', $databukti->id) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('buktidattran.update', $databukti->id) }}" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <div class="row">

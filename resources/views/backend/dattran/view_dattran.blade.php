@@ -1,8 +1,16 @@
 @extends('admin.admin_master')
-@section('title','Data Transaksi2')
+@section('title','Data Transaksi')
 @section('admin')
 
 <div class="container-fluid">
+    @if (session('message'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('message') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @endif
     <div class="container">
         <div class="row">
             <div class="col">
@@ -39,7 +47,7 @@
                             <td>{{$dattran->tgl_kembali}}</td>
                             <td>{{$dattran->harga}}</td>
                             <td><center>
-                                <a href="{{route('bukti.edit', $dattran->id)}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"> Edit</i></a>
+                                <a href="{{route('buktidattran.edit', $dattran->id)}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"> Edit</i></a>
                                 <a href="{{route('dattran.delete', $dattran->id)}}" class="btn btn-danger btn-sm"><i class="fas fa-trash"> Delete</i></a>
                                 </center>
                         @endforeach
