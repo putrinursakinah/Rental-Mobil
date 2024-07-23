@@ -16,13 +16,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->id=='1'){
+        if(Auth::user()->id=='2'){
             $data = Users::all();
             return view('backend.user.view_user', ['data' => $data]);
     } else {
         $user = Auth::user()->id;
         $data = Anggota::where('user_id', $user)->get();
-        return view('backend.user.view_user', ['data' => $data]);
+        return view('backend.user.view_user2', ['data' => $data]);
     }
     
     }
