@@ -83,14 +83,3 @@ Route::middleware([
         Route::get('/dashboard2', [DatpenController::class, 'indexDashboard'])->name('dashboard2.view');
     });
 });
-
-//     Route::prefix('dattrans')->group(function(){
-//         Route::get('/dattran/create', [DattranController::class, 'create'])->name('dattran.create');
-//         Route::get('/view', [DattranController::class, 'index'])->name('dattran.view');
-//         //Route::get('/add', [DattranController::class, 'create'])->name('dattran.add');
-//         Route::post('/store', [DattranController::class, 'store'])->name('dattran.store');
-//         Route::get('/edit/{id}', [DattranController::class, 'edit'])->name('dattran.edit');
-//         Route::post('/update/{id}', [DattranController::class, 'update'])->name('dattran.update');
-//         Route::get('/delete/{id}',[DattranController::class, 'destroy'])->name('dattran.delete');
-    
-// });
