@@ -12,7 +12,7 @@ class Anggota extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
 
-    public function kepanitiaans(){
+    public function datmobs(){
         return $this->belongsTo(Datmob::class, 'datmobs_id', 'id');
     }
 
