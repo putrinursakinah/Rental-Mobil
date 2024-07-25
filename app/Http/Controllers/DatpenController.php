@@ -20,7 +20,7 @@ class DatpenController extends Controller
             return view('backend.datpen.view_datpen', ['data' => $data]);
     } else {
         $user = Auth::user()->id;
-        $data = Anggota::where('user_id', $user)->get();
+        $data = Datpen::all();
         return view('backend.datpen.view_datpen2', ['data' => $data]);
     }
     }
