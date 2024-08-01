@@ -42,6 +42,7 @@ class DatmobController extends Controller
         $data = new Datmob();
         $data->nama = $request->nama;
         $data->merk = $request->merk;
+        $data->stok = $request->stok;
         $data->tahun_keluaran = $request->tahun_keluaran;
         $data->harga = $request->harga;
         $data->save();
@@ -75,6 +76,7 @@ class DatmobController extends Controller
         $data = Datmob::find($id);
         $data->nama = $request->nama;
         $data->merk = $request->merk;
+        $data->stok = $request->stok;
         $data->harga = $request->harga;
         $data->update();
 
@@ -95,6 +97,7 @@ class DatmobController extends Controller
 
     public function updatebukti(Request $request, $id){
         $data = Datmob::find($id);
+        $data->stok = $request->stok;
         $data->harga = $request->harga;
         $data->save();
         return redirect()->route('datmob.view');

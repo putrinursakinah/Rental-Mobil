@@ -30,9 +30,17 @@
                 <div class="mb-3">
                     <div class="row">
                         <div class="col">
+                            <label for="stok" class="form-label">Stok</label>
+                            <input type="text" class="form-control" name="stok" required>
+                        </div>
+                        <div class="col">
                             <label for="tahun_keluaran" class="form-label">Tahun Keluaran</label>
                             <input type="text" class="form-control" name="tahun_keluaran" required>
                         </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="row">
                         <div class="col">
                             <label for="harga" class="form-label">Harga</label>
                             <input type="text" class="form-control" name="harga" required>

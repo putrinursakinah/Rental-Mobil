@@ -29,8 +29,12 @@
                 <div class="mb-3">
                     <div class="row">
                         <div class="col">
+                            <label for="stok" class="form-label">Stok</label>
+                            <input type="text" class="form-control" name="stok">
+                        </div>
+                        <div class="col">
                             <label for="harga" class="form-label">Harga</label>
-                            <input type="text" class="form-control" name="harga">
+                            <input type="text" class="form-control" name="harga" value="{{$databukti->harga}}" disabled>
                         </div>
                     </div>
                 </div>
