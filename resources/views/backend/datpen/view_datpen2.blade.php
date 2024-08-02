@@ -70,8 +70,8 @@
                                 <td>{{ $datpen->tgl_pinjam }}</td>
                                 <td>{{ $datpen->tgl_selesai }}</td>
                                 <td>
-                                    <a href="{{route('buktidatpen.edit', $datpen->id)}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"> Edit</i></a>
-                                    <a href="{{route('datpen.delete', $datpen->id)}}" class="btn btn-danger btn-sm"><i class="fas fa-trash"> Delete</i></a>
+                                    <a href="#" class="btn btn-warning btn-sm"><i class="fas fa-edit"> Edit</i></a>
+                                    <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"> Delete</i></a>
                                 </td>
                             </tr>  
                         @endforeach
