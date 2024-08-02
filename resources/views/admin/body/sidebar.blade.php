@@ -18,25 +18,23 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
-
     <li class="{{'users/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
         <a class="nav-link" href="{{url('/users/view')}}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-solid fa-id-card"></i>
             <span>Data User</span></a>
     </li>
 
     <!-- Divider -->
-    <hr class="sidebar-divider">
-
+    <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="{{'datmobs/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
         <a class="nav-link collapsed" href="{{url('/datmobs/view')}}">
-            </i><i class="fas fa-solid fa-id-card"></i>
+            </i><i class="fas fa-solid fa-car"></i>
             <span>Data Mobil</span>
         </a>
     </li>
-    <hr class="sidebar-divider d-none d-md-block">
+    <!-- <hr class="sidebar-divider d-none d-md-block"> -->
 
     <li class="{{'datpens/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
         <a class="nav-link collapsed" href="{{url('/datpens/view')}}">
@@ -44,12 +42,12 @@
             <span>Data Penyewa</span>
         </a>
     </li>
-    <hr class="sidebar-divider d-none d-md-block">
+    <!-- <hr class="sidebar-divider d-none d-md-block"> -->
 
     <li class="{{'dattrans/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
         <a class="nav-link collapsed" href="{{url('/dattrans/view')}}">
-            </i><i class="fas fa-solid fa-car"></i>
-            <span>Data Transaksi</span>
+            </i><i class="fas fa-credit-card"></i>
+            <span>Data Transaksi</span> 
         </a>
     </li>
     <hr class="sidebar-divider d-none d-md-block">
@@ -66,7 +64,7 @@
         <span>Log Out</span></a>
     </li>
 
-    <hr class="sidebar-divider d-none d-md-block">
+    <!-- <hr class="sidebar-divider d-none d-md-block"> -->
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

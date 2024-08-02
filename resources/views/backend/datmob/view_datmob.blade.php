@@ -23,6 +23,7 @@
                             <th>No</th>
                             <th><center>Nama Mobil</center></th>
                             <th><center>Merk</center></th>
+                            <th><center>Stok</center></th>
                             <th><center>Tahun Keluaran</center></th>
                             <th><center>Harga Sewa</center></th>
                             <th><center>Aksi</center></th>
@@ -34,6 +35,7 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$datmob->nama}}</td>
                             <td>{{$datmob->merk}}</td>
+                            <td>{{$datmob->stok}}</td>
                             <td>{{$datmob->tahun_keluaran}}</td>
                             <td>{{$datmob->harga}}</td>
                             <td><center>
