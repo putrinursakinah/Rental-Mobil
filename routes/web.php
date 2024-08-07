@@ -125,5 +125,6 @@ Route::middleware([
         Route::post('/update-nilai/{id}', [AnggotaController::class, 'updatenilaidattran'])->name('nilaidattran.update');
         Route::get('/tambah-nilai/{id}', [AnggotaController::class, 'tambahnilaidattran'])->name('nilaidattran.tambah');
         Route::get('/delete/{id}', [DattranController::class, 'destroy'])->name('dattran.delete');
+        Route::get('dattran/export', [DattranController::class, 'export'])->name('dattran.export');
     });
 });

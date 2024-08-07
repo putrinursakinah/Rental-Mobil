@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Exports\DattranExport;
 use App\Models\Anggota;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Dattran;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DattranController extends Controller
 {
@@ -106,5 +108,10 @@ class DattranController extends Controller
         $deleteData = Dattran::find($id);
         $deleteData->delete();
         return redirect()->route('dattran.view')->with('message', 'Data Berhasil Dihapus');
+    }
+
+    public function export()
+    {
+        return Excel::download(new DattranExport, 'transaksi.xlsx');
     }
 }
