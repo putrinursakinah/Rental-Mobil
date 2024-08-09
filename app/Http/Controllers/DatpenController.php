@@ -40,11 +40,14 @@ class DatpenController extends Controller
     public function store(Request $request)
     {
         $data = new Datpen();
+        $data->id_mk = $request->id_mk;
+        $data->id_mobil = $request->id_mobil;
         $data->nama = $request->nama;
         $data->notelp = $request->notelp;
         $data->email = $request->email;
         $data->alamat = $request->alamat;
         $data->merk_mobil = $request->merk_mobil;
+        $data->jumlah = $request->jumlah;
         $data->tgl_pinjam = $request->tgl_pinjam;
         $data->tgl_selesai = $request->tgl_selesai;
         $data->save();
@@ -82,6 +85,7 @@ class DatpenController extends Controller
         $data->notelp = $request->notelp;
         $data->alamat = $request->alamat;
         $data->merk_mobil = $request->merk_mobil;
+        $data->jumlah = $request->jumlah;
         $data->tgl_pinjam = $request->tgl_pinjam;
         $data->tgl_selesai = $request->tgl_selesai;
         $data->update();
@@ -110,6 +114,7 @@ public function updatebuktidatpen(Request $request, $id){
     $data->notelp = $request->notelp;
     $data->alamat = $request->alamat;
     $data->merk_mobil = $request->merk_mobil;
+    $data->jumlah = $request->jumlah;
     //$data->tgl_pinjam = $request->tgl_pinjam;
     //$data->tgl_selesai = $request->tgl_selesai;
     $data->save();

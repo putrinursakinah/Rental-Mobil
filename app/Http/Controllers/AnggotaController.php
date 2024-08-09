@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dattran;
 use App\Models\Anggota;
-use App\Models\Datmob;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -17,15 +17,15 @@ class AnggotaController extends Controller
 
     public function editnilai($id)
     {
-        $datakeg = Datmob::find($id);
-        $dataguru = Anggota::where('datmobs_id', $id)->get();
-        return view('backend.datmob.edit_nilai', compact('datakeg', 'dataguru'));
+        $datakeg = Dattran::find($id);
+        $dataguru = Anggota::where('dattrans_id', $id)->get();
+        return view('backend.dattran.edit_nilai', compact('datakeg', 'dataguru'));
     }
     
     public function tambahnilai($id)
     {
         $datanama = Anggota::find($id);
-        return view('backend.datmob.add_nilai', compact('dataguru'));
+        return view('backend.dattran.add_nilai', compact('dataguru'));
     }
 
     public function updatenilai(Request $request, $id)
@@ -35,5 +35,4 @@ class AnggotaController extends Controller
         $datanilai->update();
         return back();
     }
-
 }

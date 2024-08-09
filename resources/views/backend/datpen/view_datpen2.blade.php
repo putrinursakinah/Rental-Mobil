@@ -42,6 +42,7 @@
                             <th>No Telp</th>
                             <th>Alamat</th>
                             <th>Merk Mobil</th>
+                            <th>Jumlah</th>
                             <th>Tanggal Pinjam</th>
                             <th>Tanggal Selesai</th>
                             <th>Action</th>
@@ -61,12 +62,14 @@
                         <?php $no = 1; ?>
                         @foreach ($data as $item => $datpen)
                             <tr class="text-center">
-                                <td>{{ $no++ }}</td>
+                                <td>{{ $datpen->id_mk }}</td>
+                                <td>{{ $datpen->id_mobil }}</td>
                                 <td>{{ $datpen->nama }}</td>
                                 <td>{{ $datpen->notelp }}</td>
                                 <td>{{ $datpen->email }}</td>
                                 <td>{{ $datpen->alamat }}</td>
                                 <td>{{ $datpen->merk_mobil }}</td>
+                                <td>{{ $datpen->jumlah }}</td>
                                 <td>{{ $datpen->tgl_pinjam }}</td>
                                 <td>{{ $datpen->tgl_selesai }}</td>
                                 <td>
