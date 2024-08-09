@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('datmobs_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('nilai')->default('0');
             $table->softDeletes();
             $table->timestamps();

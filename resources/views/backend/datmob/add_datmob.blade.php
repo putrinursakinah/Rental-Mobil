@@ -18,29 +18,33 @@
                 <div class="mb-3">
                     <div class="row">
                         <div class="col">
-                            <label for="nama" class="form-label">Nama Mobil</label>
+                            <label for="id_mobil" class="form-label">ID_Mobil</label>
+                            <input type="text" class="form-control" name="id_mobil" required>
+                        </div>
+                        <div class="col">
+                            <label for="nama" class="form-label">Nama</label>
                             <input type="text" class="form-control" name="nama" required>
                         </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="row">
                         <div class="col">
                             <label for="merk" class="form-label">Merk</label>
                             <input type="text" class="form-control" name="merk" required>
                         </div>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <div class="row">
                         <div class="col">
                             <label for="stok" class="form-label">Stok</label>
                             <input type="text" class="form-control" name="stok" required>
                         </div>
-                        <div class="col">
-                            <label for="tahun_keluaran" class="form-label">Tahun Keluaran</label>
-                            <input type="text" class="form-control" name="tahun_keluaran" required>
-                        </div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <div class="row">
+                        <div class="col">
+                            <label for="tahun_keluaran" class="form-label">Tahun Keluaran</label>
+                            <input type="text" class="form-control" name="tahun_keluaran" required>
+                        </div>
                         <div class="col">
                             <label for="harga" class="form-label">Harga</label>
                             <input type="text" class="form-control" name="harga" required>

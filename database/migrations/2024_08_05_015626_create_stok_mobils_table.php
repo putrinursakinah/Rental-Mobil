@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('datmobs', function (Blueprint $table) {
+        Schema::create('stok_mobils', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('merk');
-            $table->string('stok');
-            $table->string('tahun_keluaran');
-            $table->decimal('harga', 15, 3)->default(0);
+            $table->string('id_mm');
+            $table->string('id_mobil');
+            $table->string('tanggal_masuk');
+            $table->string('jumlah');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('datmobs');
+        Schema::dropIfExists('stok_mobils');
     }
 };

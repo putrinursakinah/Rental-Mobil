@@ -20,7 +20,7 @@
                 <table class="table table-bordered" id="dataTable" width="80%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>No</th>
+                            <th><center>ID_Mobil</center></th>
                             <th><center>Nama Mobil</center></th>
                             <th><center>Merk</center></th>
                             <th><center>Stok</center></th>
@@ -32,7 +32,8 @@
 
                         @foreach ($data as $item =>$datmob)
                         <tr>
-                            <td>{{$loop->iteration}}</td>
+
+                            <td>{{$datmob->id_mobil}}</td>
                             <td>{{$datmob->nama}}</td>
                             <td>{{$datmob->merk}}</td>
                             <td>{{$datmob->stok}}</td>

@@ -34,6 +34,28 @@
             <span>Data Mobil</span>
         </a>
     </li>
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="{{'stokmobils/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
+        <a class="nav-link collapsed" href="{{url('/stokmobils/view')}}">
+            </i><i class="fas fa-solid fa-car"></i>
+            <span>Stok Mobil</span>
+        </a>
+    </li>
+
+    <!-- <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Stok Mobil</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded"> -->
+                        <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                        <!-- <a class="collapse-item" href="{{url('/mobilmasuks/view')}}">Mobil Masuk</a>
+                        <a class="collapse-item" href="{{url('/mobilkeluars/view')}}">Mobil Keluar</a>
+                    </div>
+                </div>
+            </li> -->
     <!-- <hr class="sidebar-divider d-none d-md-block"> -->
 
     <li class="{{'datpens/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
@@ -51,9 +73,8 @@
         </a>
     </li>
     <hr class="sidebar-divider d-none d-md-block">
-
     
-
+    
     <!-- Nav Item - Charts -->
     <li class="nav-item ">
         <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">

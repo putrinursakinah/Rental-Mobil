@@ -6,7 +6,9 @@ use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DatpenController;
 use App\Http\Controllers\DattranController;
+use App\Http\Controllers\StokMobilController;
 use App\Http\Controllers\UserController;
+use App\Models\StokMobil;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +59,6 @@ Route::middleware([
     });
 });
 
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -66,7 +67,7 @@ Route::middleware([
     Route::prefix('datpens')->group(function(){
         Route::get('/view', [DatpenController::class, 'index'])->name('datpen.view');
         Route::get('/add', [DatpenController::class, 'create'])->name('datpen.add');
-        Route::get('/add2', [DatpenController::class, 'create'])->name('datpen2.add');
+        // Route::get('/add2', [DatpenController::class, 'create'])->name('datpen2.add');
         Route::post('/store', [DatpenController::class, 'store'])->name('datpen.store');
         Route::get('/edit/{id}', [DatpenController::class, 'edit'])->name('datpen.edit');
         Route::get('/update/{id}', [DatpenController::class, 'update'])->name('datpen.update');

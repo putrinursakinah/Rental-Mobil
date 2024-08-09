@@ -40,6 +40,7 @@ class DatmobController extends Controller
     public function store(Request $request)
     {
         $data = new Datmob();
+        $data->id_mobil = $request->id_mobil;
         $data->nama = $request->nama;
         $data->merk = $request->merk;
         $data->stok = $request->stok;

@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Datpen extends Model
 {
     use HasFactory;
-
     protected $table = 'datpens';
     protected $primaryKey = 'id';
     public $timestamps = true;

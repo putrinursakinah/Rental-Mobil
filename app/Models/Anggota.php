@@ -12,10 +12,6 @@ class Anggota extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
 
-    public function datmobs(){
-        return $this->belongsTo(Datmob::class, 'datmobs_id', 'id');
-    }
-
     public function user(){
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
