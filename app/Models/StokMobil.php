@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class StokMobil extends Model
 {
     use HasFactory;
+    protected $table = 'stok_mobils';
+    protected $primaryKey = 'id';
+    public $timestamps = true;
+    public function details()
+    {
+        return $this->hasMany(Anggota::class, 'id_anggota', 'id');
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

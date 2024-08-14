@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\StokMobil;
 class StokMobilController extends Controller
 {
     /**
@@ -11,7 +11,9 @@ class StokMobilController extends Controller
      */
     public function index()
     {
-        //
+        $data = StokMobil::all();
+        return view('backend.stokmobil.view_stokmobil', ['data' => $data]);
+
     }
 
     /**
@@ -19,7 +21,7 @@ class StokMobilController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.stokmobil.add_stokmobil');
     }
 
     /**
@@ -27,7 +29,14 @@ class StokMobilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new StokMobil();
+        $data->id_mm = $request->id_mm;
+        $data->id_mobil = $request->id_mobil;
+        $data->tanggal_masuk = $request->tanggal_masuk;
+        $data->jumlah = $request->jumlah;
+        $data->save();
+
+        return redirect()->route('stokmobil.view')->with('message', 'Data Berhasil Ditambahkan');
     }
 
     /**

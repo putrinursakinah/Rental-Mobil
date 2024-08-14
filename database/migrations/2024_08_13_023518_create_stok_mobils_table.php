@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('stok_mobils', function (Blueprint $table) {
             $table->id();
+            $table->string('id_mm');
+            $table->string('id_mobil');
+            $table->string('tanggal_masuk');
+            $table->string('jumlah');
             $table->timestamps();
         });
     }
