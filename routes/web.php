@@ -135,7 +135,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::prefix('stoStokMobils')->group(function(){
+    Route::prefix('stok_mobils')->group(function(){
         Route::get('/view', [StokMobilController::class, 'index'])->name('stokmobil.view');
         Route::get('/add', [StokMobilController::class, 'create'])->name('stokmobil.add');
         Route::post('/store', [StokMobilController::class, 'store'])->name('stokmobil.store');
