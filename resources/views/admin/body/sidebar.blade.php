@@ -46,7 +46,7 @@
     </li>
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="{{'stokmobils/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
-        <a class="nav-link collapsed" href="{{url('/stokmobils/view')}}">
+        <a class="nav-link collapsed" href="{{url('/stok_mobils/view')}}">
             </i><i class="fas fa-solid fa-car"></i>
             <span>Stok Mobil</span>
         </a>
