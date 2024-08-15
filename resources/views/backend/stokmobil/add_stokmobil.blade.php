@@ -31,13 +31,14 @@
                     <div class="row">
                         <div class="col">
                             <label for="tanggal_masuk" class="form-label">Tanggal Masuk</label>
-                            <input type="datetime-local" class="form-control" name="tanggal_masuk" required>
+                            <input type="date" class="form-control" name="tanggal_masuk" required>
                         </div>
                         <div class="col">
                             <label for="jumlah" class="form-label">Jumlah</label>
-                            <input type="datetime-local" class="form-control" name="jumlah" required>
+                            <input type="text" class="form-control" name="jumlah" required>
                         </div>
                     </div>
+                </div>
                 <button type="submit" class="btn btn-success">Submit</button>
                 <button onclick="history.back()" type="button" class="btn btn-danger">Batal</button>
             </form>

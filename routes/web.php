@@ -139,6 +139,16 @@ Route::middleware([
         Route::get('/view', [StokMobilController::class, 'index'])->name('stokmobil.view');
         Route::get('/add', [StokMobilController::class, 'create'])->name('stokmobil.add');
         Route::post('/store', [StokMobilController::class, 'store'])->name('stokmobil.store');
+        Route::get('/edit/{id}', [StokMobilController::class, 'edit'])->name('stokmobil.edit');
+        Route::get('/update/{id}', [StokMobilController::class, 'update'])->name('stokmobil.update');
+        // Route::get('/delete/{id}',[StokMobilController::class, 'delete'])->name('stokmobil.delete');
+        Route::get('/get', [AnggotaController::class, 'getData']);
+        Route::get('/edit-bukti/{id}', [StokMobilController::class, 'editbuktistokmobil'])->name('buktistokmobil.edit');
+        Route::post('/update-bukti/{id}', [StokMobilController::class, 'updatebuktistokmobil'])->name('buktistokmobil.update');
+        // Route::get('/edit-nilai/{id}', [AnggotaController::class, 'editnilaistokmobil'])->name('nilaistokmobil.edit');
+        // Route::post('/update-nilai/{id}', [AnggotaController::class, 'updatenilaistokmobil'])->name('nilaistokmobil.update');
+        // Route::get('/tambah-nilai/{id}', [AnggotaController::class, 'tambahnilaistokmobil'])->name('nilaistokmobil.tambah');
+        Route::get('/delete/{id}', [StokMobilController::class, 'destroy'])->name('stokmobil.delete');
 
     });
 });

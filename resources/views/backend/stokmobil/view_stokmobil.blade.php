@@ -39,11 +39,10 @@
 
                     @foreach ($data as $item => $stok_mobil)
                         <tr>
-                            <td>{{$loop->iteration}}</td>
-                            <td>{{$dattran->id_mm}}</td>
-                            <td>{{$dattran->id_mobil}}</td>
-                            <td>{{$dattran->tanggal_masuk}}</td>
-                            <td>{{$dattran->jumlah}}</td>
+                            <td>{{$stok_mobil->id_mm}}</td>
+                            <td>{{$stok_mobil->id_mobil}}</td>
+                            <td>{{$stok_mobil->tanggal_masuk}}</td>
+                            <td>{{$stok_mobil->jumlah}}</td>
                         </tr>
                     @endforeach
                     </tbody>
