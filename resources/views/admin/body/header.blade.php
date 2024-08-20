@@ -68,8 +68,8 @@
                         </div>
                     </div>
                     <div>
-                        <div class="small text-gray-500">December 12, 2019</div>
-                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                        <div class="small text-gray-500">Agustus 19, 2024</div>
+                        <span class="font-weight-bold">Penyewa Baru telah menyelesaikan Transaksi!</span>
                     </div>
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -79,8 +79,8 @@
                         </div>
                     </div>
                     <div>
-                        <div class="small text-gray-500">December 7, 2019</div>
-                        $290.29 has been deposited into your account!
+                        <div class="small text-gray-500">Agustus 19, 2024</div>
+                        Penyewa Baru telah menyelesaikan Transaksi!!
                     </div>
                 </a>
                 <a class="dropdown-item d-flex align-items-center" href="#">
