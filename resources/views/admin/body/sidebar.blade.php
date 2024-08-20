@@ -23,11 +23,16 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
-    <li class="{{'users/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
-        <a class="nav-link" href="{{url('/users/view')}}">
-            <i class="fas fa-solid fa-id-card"></i>
-            <span>Data User</span></a>
+    
+    @if(Auth::user()->id == '2') <!-- Hanya untuk Super Admin -->
+    <li class="{{'user/view' == request()->path() ? 'nav-item active' : 'nav-item'}}">
+        <a href="{{ route('user.view') }}" class="nav-link">
+            <i class="nav-icon fas fa-users"></i>
+            <span>Data User</span>
+        </a>
     </li>
+    @endif
+
 
     <!-- Divider -->
     <hr class="sidebar-divider">
