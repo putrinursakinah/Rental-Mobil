@@ -152,3 +152,5 @@ Route::middleware([
 
     });
 });
+
+Route::get('/dashboard', 'DashboardController@index');
