@@ -30,7 +30,7 @@
     <div class="card shadow mb-4">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="80%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -39,28 +39,35 @@
                             <th><center>Tanggal Pinjam</center></th>
                             <th><center>Tanggal Kembali</center></th>
                             <th><center>Harga</center></th>
-                            <th><center>Aksi</center></th>
+                            <th style="width: 100px;"><center>Aksi</center></th>
                         </tr>
                     </thead>
-
+                    <tbody>
                     @foreach ($data as $item => $dattran)
                         <tr>
-                            <td>{{$loop->iteration}}</td>
-                            <td>{{$dattran->nama}}</td>
-                            <td>{{$dattran->merk}}</td>
-                            <td>{{$dattran->tgl_pinjam}}</td>
-                            <td>{{$dattran->tgl_kembali}}</td>
-                            <td>{{$dattran->harga}}</td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $dattran->nama }}</td>
+                            <td>{{ $dattran->merk }}</td>
+                            <td>{{ $dattran->tgl_pinjam }}</td>
+                            <td>{{ $dattran->tgl_kembali }}</td>
+                            <td>Rp {{ number_format($dattran->harga, 0, ',', '.') }}</td>
                             <td><center>
-                                <a href="{{route('buktidattran.edit', $dattran->id)}}" class="btn btn-warning btn-sm"><i class="fas fa-edit"> Edit</i></a>
-                                <a href="{{route('dattran.delete', $dattran->id)}}" class="btn btn-danger btn-sm"><i class="fas fa-trash"> Delete</i></a>
+                                <a href="{{ route('buktidattran.edit', $dattran->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"> Edit</i></a>
+                                <a href="{{ route('dattran.delete', $dattran->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"> Delete</i></a>
                             </center></td>
                         </tr>
                     @endforeach
                     </tbody>
-                </table> 
+                    <tfoot>
+                        <tr>
+                            <td colspan="5" class="text-center"><strong>Total Semua Transaksi:</strong></td>
+                            <td colspan="2"><strong>Rp {{ number_format($totalHarga, 0, ',', '.') }}</strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
             </div>
         </div>
     </div>
 </div>
+
 @endsection
