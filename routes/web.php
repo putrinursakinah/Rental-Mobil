@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DatmobController;
 use App\Http\Controllers\AnggotaController;
@@ -151,4 +152,7 @@ Route::middleware([
         Route::get('/delete/{id}', [StokMobilController::class, 'destroy'])->name('stokmobil.delete');
 
     });
+
+   // Route::get('/login',[LoginController::class,'index'])->name('login');
+    //Route::post('/login-proses',[LoginController::class,'login_proses'])->name('login-proses');
 });
