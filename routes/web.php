@@ -156,3 +156,5 @@ Route::middleware([
    // Route::get('/login',[LoginController::class,'index'])->name('login');
     //Route::post('/login-proses',[LoginController::class,'login_proses'])->name('login-proses');
 });
+
+Route::get('/dashboard', 'DashboardController@index');
