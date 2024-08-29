@@ -17,11 +17,13 @@ class DattranController extends Controller
     {
         if(Auth::user()->id=='1'){
             $data = Dattran::all();
-            return view('backend.dattran.view_dattran', ['data' => $data]);
+            $totalHarga = Dattran::sum('harga');  // Menghitung total transaksi
+            return view('backend.dattran.view_dattran', ['data' => $data, 'totalHarga' => $totalHarga]);
     } else {
         $user = Auth::user()->id;
         $data = Dattran::all();
-        return view('backend.dattran.view_dattran2', ['data' => $data]);
+        $totalHarga = Dattran::sum('harga');
+        return view('backend.dattran.view_dattran2', ['data' => $data, 'totalHarga' => $totalHarga]);
     }
 }
 
