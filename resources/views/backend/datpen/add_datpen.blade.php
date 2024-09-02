@@ -9,6 +9,7 @@
             </div>
         </div>
     </div>
+    </div>
     <br>
     <div class="card shadow mb-4">
         <div class="card-body">
@@ -75,49 +76,21 @@
                     </div>
                  </div>
                  <div class="mb-3">
-                    <tfoot>
-                        <tr>
-                            <td colspan="2">
-                                <div class="row">
-                                    <div class="col">
-                                        <label for="pilihanDiskon">PilihanDiskon</label>
-                                        <div class="col">
-                                            <select class="form-select" id="pilihanDiskon"
-                                                name="pilihanDiskon"
-                                                aria-label="Default select example"
-                                                required>
-                                                <option value="Pilih">Pilih Diskon
-                                                </option>
-                                                <option value="Persen">Banyak Transaksi</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-3">
-                                            <input type="text" class="form-control"
-                                            style="min-width: 50px;" id="diskon" name="diskon" required>
-                                        </div>
-                                    </div>
-                                    
-                                    
-
-                                                                                                            
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12 text-end">
-                                        <strong>Total Diskon:</strong> <span
-                                            id="total-diskon">0</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td colspan="2" class="text-end">
-                                <strong>Total Jumlah Harga :</strong>
-                            </td>
-                            <td colspan="2">
-                                <span id="total-price">0</span>
-                            </td>
-                        </tr>
-                    </tfoot>
-                 </div>
-                
+                    <div class="row">
+                        <div class="col">
+                            <label for="jenis_diskon" class="form-label">Jenis Diskon</label>
+                            <select class="form-control" name="jenis_diskon" required>
+                                <option value="">Pilih Jenis Diskon</option>
+                                <option value="transaksi">Diskon Banyak Transaksi</option>
+                                <option value="toko">Diskon dari Toko</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="diskon" class="form-label">Diskon (%)</label>
+                            <input type="number" class="form-control" name="diskon" min="0" max="100" required>
+                        </div>
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-success">Submit</button>
                 <button onclick="history.back()" type="button" class="btn btn-danger">Batal</button>
             </form>

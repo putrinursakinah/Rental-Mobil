@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('alamat');
             $table->string('merk_mobil');
-            $table->string('jumlah');
+            $table->string('jumlah', 8, 2);
+            $table->string('diskon')->default(0);
             $table->dateTime('tgl_pinjam');
             $table->dateTime('tgl_selesai');
             $table->timestamps();
