@@ -40,22 +40,22 @@ class DatpenController extends Controller
     public function store(Request $request)
     {
         // Cek jumlah transaksi sebelumnya
-    $jumlahTransaksi = Datpen::where('nama', $request->nama)->count();
+        $jumlahTransaksi = Datpen::where('nama', $request->nama)->count();
 
-    $diskon = 0;
-    
-    // Logika untuk Diskon Banyak Transaksi
-    if ($request->jenis_diskon == 'transaksi') {
-        if ($jumlahTransaksi >= 3) {
-            $diskon = $request->diskon;
-        } else {
-            return redirect()->back()->with('error', 'Diskon Banyak Transaksi hanya berlaku untuk penyewa dengan 10 atau lebih transaksi.');
+        $diskon = 0;
+
+        // Logika untuk Diskon Banyak Transaksi
+        if ($request->jenis_diskon == 'transaksi') {
+            if ($jumlahTransaksi >= 10) {
+                $diskon = $request->diskon;
+            } else {
+                return redirect()->back()->with('error', 'Diskon Banyak Transaksi hanya berlaku untuk penyewa dengan 10 atau lebih transaksi.');
+            }
         }
-    }
-    // Logika untuk Diskon dari Toko
-    else if ($request->jenis_diskon == 'toko') {
-        $diskon = $request->diskon;
-    }
+        // Logika untuk Diskon dari Toko
+        else if ($request->jenis_diskon == 'toko') {
+            $diskon = $request->diskon;
+        }
 
         $data = new Datpen();
         $data->id_mk = $request->id_mk;
@@ -71,7 +71,6 @@ class DatpenController extends Controller
         $data->tgl_selesai = $request->tgl_selesai;
         $data->save();
 
-        //return redirect()->route('datpen.view');
         return redirect()->route('datpen.view')->with('message', 'Data Berhasil Ditambahkan');
     }
 
@@ -128,17 +127,14 @@ class DatpenController extends Controller
     public function updatebuktidatpen(Request $request, $id)
     {
         $data = Datpen::find($id);
-        //$data->harga = $request->harga;
-        //$data->nama = $request->nama;
+
         $data->email = $request->email;
         $data->notelp = $request->notelp;
         $data->alamat = $request->alamat;
         $data->merk_mobil = $request->merk_mobil;
         $data->jumlah = $request->jumlah;
-        //$data->tgl_pinjam = $request->tgl_pinjam;
-        //$data->tgl_selesai = $request->tgl_selesai;
         $data->save();
-        //return redirect()->route('datpen.view');
+
         return redirect()->route('datpen.view')->with('message', 'Data Berhasil Diedit');
     }
 
@@ -152,16 +148,4 @@ class DatpenController extends Controller
         //return redirect()->route('datpen.view');
         return redirect()->route('datpen.view')->with('message', 'Data Berhasil Dihapus');
     }
-
-    // public function indexDashboard()
-    // {
-    //     if(Auth::user()->id=='1'){
-    //         $data = Datpen::all();
-    //         return view('admin.dashboard', ['data' => $data]);
-    // } else {
-    //     $user = Auth::user()->id;
-    //     $data = Anggota::where('user_id', $user)->get();
-    //     return view('admin.dashboard2', ['data' => $data]);
-    // }
-    // }
 }

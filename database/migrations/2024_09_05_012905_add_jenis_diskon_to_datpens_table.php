@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        {
-            Schema::table('datpens', function (Blueprint $table) {
-                $table->string('jenis_diskon')->nullable();
-            });
-        }
+        Schema::table('datpens', function (Blueprint $table) {
+            $table->string('jenis_diskon')->nullable()->after('diskon');
+        });
     }
 
     /**
@@ -24,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('datpens', function (Blueprint $table) {
-            //
+            $table->dropColumn('jenis_diskon');
         });
     }
 };

@@ -9,7 +9,6 @@
             </div>
         </div>
     </div>
-    </div>
     <br>
     <div class="card shadow mb-4">
         <div class="card-body">
@@ -36,6 +35,22 @@
                         <div class="col">
                             <label for="notelp" class="form-label">No Telpon</label>
                             <input type="text" class="form-control" name="notelp" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col">
+                            <label for="jenis_diskon" class="form-label">Jenis Diskon</label>
+                            <select class="form-control" name="jenis_diskon" required>
+                                <option value="">Pilih Jenis Diskon</option>
+                                <option value="transaksi">Diskon Banyak Transaksi</option>
+                                <option value="toko">Diskon dari Toko</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="diskon" class="form-label">Diskon (%)</label>
+                            <input type="number" class="form-control" name="diskon" min="0" max="100" required>
                         </div>
                     </div>
                 </div>
@@ -75,22 +90,7 @@
                         </div>
                     </div>
                  </div>
-                 <div class="mb-3">
-                    <div class="row">
-                        <div class="col">
-                            <label for="jenis_diskon" class="form-label">Jenis Diskon</label>
-                            <select class="form-control" name="jenis_diskon" required>
-                                <option value="">Pilih Jenis Diskon</option>
-                                <option value="transaksi">Diskon Banyak Transaksi</option>
-                                <option value="toko">Diskon dari Toko</option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <label for="diskon" class="form-label">Diskon (%)</label>
-                            <input type="number" class="form-control" name="diskon" min="0" max="100" required>
-                        </div>
-                    </div>
-                </div>
+                
                 <button type="submit" class="btn btn-success">Submit</button>
                 <button onclick="history.back()" type="button" class="btn btn-danger">Batal</button>
             </form>
