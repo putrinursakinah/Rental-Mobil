@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('merk_mobil');
             $table->string('jumlah', 8, 2);
+            $table->string('jenis_diskon');
             $table->string('diskon')->default(0);
             $table->dateTime('tgl_pinjam');
             $table->dateTime('tgl_selesai');

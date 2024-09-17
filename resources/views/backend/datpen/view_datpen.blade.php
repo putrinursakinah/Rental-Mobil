@@ -37,6 +37,7 @@
                             <th>Alamat</th>
                             <th>Merk Mobil</th>
                             <th>Jumlah</th>
+                            <th>Jenis Diskon</th>
                             <th>Diskon</th> <!-- Tambahkan kolom Diskon -->
                             <th>Tanggal Pinjam</th>
                             <th>Tanggal Selesai</th>
@@ -50,11 +51,12 @@
                                 <td>{{ $datpen->id_mobil }}</td>
                                 <td>{{ $datpen->nama }}</td>
                                 <td>{{ $datpen->email }}</td>
-                                <td>{{ $datpen->diskon }}%</td> <!-- Tampilkan Diskon di sini -->
                                 <td>{{ $datpen->notelp }}</td>
                                 <td>{{ $datpen->alamat }}</td>
                                 <td>{{ $datpen->merk_mobil }}</td>
                                 <td>{{ $datpen->jumlah }}</td>
+                                <td>{{ $datpen->jenis_diskon }}</td>
+                                <td>{{ $datpen->diskon }}</td> <!-- Tampilkan Diskon di sini -->
                                 <td>{{ $datpen->tgl_pinjam }}</td>
                                 <td>{{ $datpen->tgl_selesai }}</td>
                                 <td>
