@@ -9,7 +9,21 @@ class Datpen extends Model
 {
     use HasFactory;
     protected $table = 'datpens';
-    protected $primaryKey = 'id';
+    
+    protected $fillable = [
+        'id_mk',
+        'id_mobil',
+        'nama',
+        'notlp',
+        'email',
+        'alamat',
+        'merk_mobil',
+        'jumlah',
+        'jenis_diskon',
+        'diskon',
+        'tgl_pinjam',
+        'tgl_selesai'
+    ];
     public $timestamps = true;
     public function details()
     {

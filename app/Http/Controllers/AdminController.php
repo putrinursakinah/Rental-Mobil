@@ -10,12 +10,31 @@ use App\Models\Users;
 
 class AdminController extends Controller
 {
-    public function index()
+    public function getTotalcars()
     {
-        $data['datmob'] = Datmob::all();
-        $data['dattran'] = Dattran::all();
-        $data['datpen'] = Datpen::all();
-        $data['user'] = Users::all();
+        $totalStok = Datmob::sum('stok');
+        $mobil = $totalStok;
+        return view('dashboard', compact('mobil'));
     }
-    
+
+    public function getTotalTransaksi()
+    {
+        $revenue = Dattran::sum('harga');
+
+        return view('dashboard', compact('revenue'));
+    }
+
+    public function getTotalPenyewa()
+    {
+        $tenant = Datpen::count();
+
+        return view('dashboard', compact('tenant'));
+    }
+
+    public function getTotalUser()
+    {
+        $user = Users::count();
+
+        return view('dashboard', compact('user'));
+    }
 }
