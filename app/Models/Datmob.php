@@ -7,5 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Datmob extends Model
 {
-    use HasFactory;
+
+    protected $table = 'datmobs';
+
+    protected $fillable = [
+        'id_mobil',
+        'nama',
+        'merk',
+        'stok',
+        'tahun_keluaran',
+        'harga'
+    ];
 }
