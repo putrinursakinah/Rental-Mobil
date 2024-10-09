@@ -32,7 +32,9 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', 'AdminController@index');
+    Route::get('/dashboard', function() {
+        return view('admin.index');
+    });
     });
 
 
