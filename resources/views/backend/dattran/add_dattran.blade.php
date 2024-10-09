@@ -16,7 +16,7 @@
             <form method="POST" action="{{ route('dattran.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
-                    <div class="row">
+                    <div class="row mb-2">
                         <div class="col">
                             <label for="nama" class="form-label">Nama Pelanggan</label>
                             <input type="text" class="form-control" name="nama" required>
@@ -27,8 +27,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <div class="row">
+                <div class="mb-2">
+                    <div class="row mb-2">
                         <div class="col">
                             <label for="tgl_pinjam" class="form-label">Tanggal Pinjam</label>
                             <input type="datetime-local" class="form-control" name="tgl_pinjam" required>
@@ -38,7 +38,7 @@
                             <input type="datetime-local" class="form-control" name="tgl_kembali" required>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-2">
                         <div class="col">
                             <label for="harga" class="form-label">Harga</label>
                             <input type="text" class="form-control" name="harga" required>
@@ -59,6 +59,6 @@
     $('.js-example-basic-multiple').select2({
         maximumSelectionLength: 10,
         multiple:true,
-});
+    });
 </script>
 @endpush
