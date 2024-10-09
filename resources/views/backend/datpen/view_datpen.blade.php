@@ -16,7 +16,7 @@
             <div class="col">
                 <h1 class="h3 mb-2 text-gray-800">Data Penyewa</h1>
             </div>
-            <div class="col text-end mb-2">
+            <div class="co text-end mb-2">
                 <a href="{{route('datpen.add')}}"><button type="button" class="btn btn-primary">Tambah Data</button></a>
             </div>
         </div>

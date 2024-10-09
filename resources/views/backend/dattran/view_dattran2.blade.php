@@ -17,6 +17,9 @@
                 <h1 class="h3 mb-2 text-gray-800">Data Transaksi</h1>
             </div>
             <div class="co text-end mb-2">
+                <a href="{{ route('dattran.export') }}" class="btn btn-success">
+                    <i class="fas fa-file-export"></i> <!-- Font Awesome export icon -->
+                </a>
                 <a href="{{ route('dattran.add') }}">
                     <button type="button" class="btn btn-primary">Tambah Data</button>
                 </a>
