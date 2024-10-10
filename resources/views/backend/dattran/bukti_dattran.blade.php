@@ -15,7 +15,7 @@
         <div class="card-body">
         <form method="POST" action="{{ route('buktidattran.update', $databukti->id) }}" enctype="multipart/form-data">
                 @csrf
-                <div class="mb-3">
+                <div class="mb-2">
                     <div class="row">
                         <div class="col">
                             <label for="nama" class="form-label">Nama Pelanggan</label>
@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="mb-3">
+                <div class="mb-2">
                     <div class="row">
                         <div class="col">
                             <label for="tgl_pinjam" class="form-label">Tanggal Pinjam</label>
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="mb-3">
+                <div class="mb-2">
                     <div class="row">
                         <div class="col">
                             <label for="harga" class="form-label">Harga</label>
