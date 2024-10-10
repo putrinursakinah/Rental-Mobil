@@ -9,6 +9,7 @@ use App\Http\Controllers\DatpenController;
 use App\Http\Controllers\DattranController;
 use App\Http\Controllers\StokMobilController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\IndexController;
 use App\Models\StokMobil;
 
 /*
@@ -32,8 +33,8 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', 'AdminController@index');
-    });
+    Route::get('/dashboard', [IndexController::class, 'index'])->name('admin.index');
+});
 
 
 
