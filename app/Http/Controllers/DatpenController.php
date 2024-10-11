@@ -66,6 +66,7 @@ class DatpenController extends Controller
         $data->alamat = $request->alamat;
         $data->merk_mobil = $request->merk_mobil;
         $data->jumlah = $request->jumlah;
+        $data->jenis_diskon = $request->jenis_diskon;
         $data->diskon = $diskon; // Simpan diskon ke dalam database
         $data->tgl_pinjam = $request->tgl_pinjam;
         $data->tgl_selesai = $request->tgl_selesai;
