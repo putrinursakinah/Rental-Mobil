@@ -49,14 +49,14 @@
                             <td>{{ $dattran->merk }}</td>
                             <td>{{ $dattran->tgl_pinjam }}</td>
                             <td>{{ $dattran->tgl_kembali }}</td>
-                            <td>Rp {{ number_format($dattran->harga, 0, ',', '.') }}</td>
+                            <td>Rp {{ number_format($dattran->harga, 3, ',', '.') }}</td>
                         </tr>
                         @endforeach
                     </tbody>
                     <tfoot>
                         <tr>
                             <td colspan="5" class="text-center"><strong>Total Semua Transaksi:</strong></td>
-                            <td><strong>Rp {{ number_format($totalHarga, 0, ',', '.') }}</strong></td>
+                            <td><strong>Rp {{ number_format($totalHarga, 3, ',', '.') }}</strong></td>
                         </tr>
                     </tfoot>
                 </table>
