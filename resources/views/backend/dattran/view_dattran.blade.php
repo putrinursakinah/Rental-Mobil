@@ -50,7 +50,7 @@
                             <td>{{ $dattran->merk }}</td>
                             <td>{{ $dattran->tgl_pinjam }}</td>
                             <td>{{ $dattran->tgl_kembali }}</td>
-                            <td>Rp {{ number_format($dattran->harga, 3, ',', '.') }}</td>
+                            <td>Rp {{ number_format($dattran->harga, 0, ',', '.') }}</td>
                             <td><center>
                                 <a href="{{ route('buktidattran.edit', $dattran->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"> Edit</i></a>
                                 <a href="{{ route('dattran.delete', $dattran->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"> Delete</i></a>
@@ -61,7 +61,7 @@
                     <tfoot>
                         <tr>
                             <td colspan="5" class="text-center"><strong>Total Semua Transaksi:</strong></td>
-                            <td colspan="2"><strong>Rp {{ number_format($totalHarga, 3, ',', '.') }}</strong></td>
+                            <td colspan="2"><strong>Rp {{ number_format($totalHarga, 0, ',', '.') }}</strong></td>
                         </tr>
                     </tfoot>
                 </table>
