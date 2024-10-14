@@ -68,7 +68,7 @@ Route::middleware([
         Route::get('/view', [DatpenController::class, 'index'])->name('datpen.view');
         Route::get('/add', [DatpenController::class, 'create'])->name('datpen.add');
         // Route::get('/add2', [DatpenController::class, 'create'])->name('datpen2.add');
-        Route::post('/store', [DatpenController::class, 'store'])->name('datpen.store');
+        Route::post('/datpen/store', [DatpenController::class, 'store'])->name('datpen.store');
         Route::get('/edit/{id}', [DatpenController::class, 'edit'])->name('datpen.edit');
         Route::get('/update/{id}', [DatpenController::class, 'update'])->name('datpen.update');
         Route::get('/delete/{id}',[DatpenController::class, 'delete'])->name('datpen.delete');
