@@ -24,6 +24,10 @@ class Datpen extends Model
         'tgl_pinjam',
         'tgl_selesai'
     ];
+
+    public function mobil(){
+        return $this->belongsTo(Datmob::class, 'id_mobil', 'id_mobil');
+    }
     public $timestamps = true;
     public function details()
     {

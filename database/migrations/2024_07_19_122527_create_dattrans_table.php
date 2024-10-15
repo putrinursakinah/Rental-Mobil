@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('merk');
             $table->dateTime('tgl_pinjam');
             $table->dateTime('tgl_kembali');
-            $table->decimal('harga', 15, 2)->default(0);
+            $table->decimal('harga', 15, 3)->default(0);
             $table->timestamps();
         });
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Anggota;
 use App\Models\Datpen;
+use App\Models\Datmob;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -30,6 +31,9 @@ class DatpenController extends Controller
      */
     public function create()
     {
+        $mobil = Datmob::all();
+        return view('backend.datpen.add_datpen', compact('mobil'));
+
         $anggota = DB::table('users')->get();
         return view('backend.datpen.add_datpen', compact('anggota'));
     }
@@ -57,6 +61,13 @@ class DatpenController extends Controller
             $diskon = $request->diskon;
         }
 
+        // Cek ketersediaan stok mobil
+        $mobil = Datmob::where('id_mobil', $request->id_mobil)->first();
+        if ($mobil->stok < $request->jumlah) {
+            return redirect()->back()->with('error', 'Stok mobil tidak mencukupi.');
+        }
+
+        // Buat data penyewaan
         $data = new Datpen();
         $data->id_mk = $request->id_mk;
         $data->id_mobil = $request->id_mobil;
@@ -66,13 +77,18 @@ class DatpenController extends Controller
         $data->alamat = $request->alamat;
         $data->merk_mobil = $request->merk_mobil;
         $data->jumlah = $request->jumlah;
+        $data->jenis_diskon = $request->jenis_diskon;
         $data->diskon = $diskon; // Simpan diskon ke dalam database
         $data->tgl_pinjam = $request->tgl_pinjam;
         $data->tgl_selesai = $request->tgl_selesai;
         $data->save();
 
+        // Kurangi stok mobil
+        $mobil->stok -= $request->jumlah;
+        $mobil->save();
+
         return redirect()->route('datpen.view')->with('message', 'Data Berhasil Ditambahkan');
-    }
+    } 
 
     /**
      * Display the specified resource.

@@ -8,7 +8,8 @@ use App\Http\Controllers\DattranController;
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\StokMobilController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\IndexController;
+use App\Models\StokMobil;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,10 +32,12 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function() {
-        return view('admin.index');
+    Route::get('/dashboard', [IndexController::class, 'index'])->name('admin.index');
     });
+<<<<<<< HEAD
     });
+=======
+>>>>>>> 27beb14ba7a84edf251a4bd616defc5d71318c14
 
 
 
@@ -69,7 +72,7 @@ Route::middleware([
         Route::get('/view', [DatpenController::class, 'index'])->name('datpen.view');
         Route::get('/add', [DatpenController::class, 'create'])->name('datpen.add');
         // Route::get('/add2', [DatpenController::class, 'create'])->name('datpen2.add');
-        Route::post('/store', [DatpenController::class, 'store'])->name('datpen.store');
+        Route::post('/datpen/store', [DatpenController::class, 'store'])->name('datpen.store');
         Route::get('/edit/{id}', [DatpenController::class, 'edit'])->name('datpen.edit');
         Route::get('/update/{id}', [DatpenController::class, 'update'])->name('datpen.update');
         Route::get('/delete/{id}',[DatpenController::class, 'delete'])->name('datpen.delete');
