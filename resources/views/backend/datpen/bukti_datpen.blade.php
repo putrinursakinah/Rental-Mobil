@@ -18,24 +18,50 @@
                 <div class="mb-3">
                     <div class="row">
                         <div class="col">
-                            <label for="nama" class="form-label">Nama</label>
-                            <input type="text" class="form-control" name="nama" value="{{$databukti->nama}}" disabled>
+                            <label for="id_mk" class="form-label">ID_MK</label>
+                            <input type="text" class="form-control" name="id_mk" value="{{ $databukti->id_mk }}" disabled>
                         </div>
                         <div class="col">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="text" class="form-control" name="email" value="{{$databukti->email}}">
+                            <label for="id_mobil" class="form-label">ID_Mobil</label>
+                            <input type="text" class="form-control" name="id_mobil" value="{{ $databukti->id_mobil }}" disabled>
                         </div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <div class="row">
                         <div class="col">
-                            <label for="notelp" class="form-label">No Telp</label>
-                            <input type="text" class="form-control" name="notelp" value="{{$databukti->notelp}}">
+                            <label for="id_mk" class="form-label">ID_MK</label>
+                            <input type="text" class="form-control" name="id_mk" value="{{ $databukti->id_mk }}" disabled>
+                        </div>
+                        <div class="col">
+                            <label for="id_mobil" class="form-label">ID_Mobil</label>
+                            <input type="text" class="form-control" name="id_mobil" value="{{ $databukti->id_mobil }}" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col">
+                            <label for="nama" class="form-label">Nama</label>
+                            <input type="text" class="form-control" name="nama" value="{{ $databukti->nama }}" disabled>
+                        </div>
+                        <div class="col">
+                            <label for="notelp" class="form-label">No Telpon</label>
+                            <input type="text" class="form-control" name="notelp">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="text" class="form-control" name="email">
                         </div>
                         <div class="col">
                             <label for="alamat" class="form-label">Alamat</label>
-                            <input type="text" class="form-control" name="alamat" value="{{$databukti->alamat}}">
+                            <input type="text" class="form-control" name="alamat">
                         </div>
                     </div>
                 </div>
@@ -43,31 +69,43 @@
                     <div class="row">
                         <div class="col">
                             <label for="merk_mobil" class="form-label">Merk Mobil</label>
-                            <input type="text" class="form-control" name="merk_mobil" value="{{$databukti->merk_mobil}}">
+                            <input type="text" class="form-control" name="merk_mobil">
                         </div>
                         <div class="col">
+                            <label for="jumlah" class="form-label">Jumlah</label>
+                            <input type="text" class="form-control" name="jumlah">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col">
+                            <label for="jenis_diskon" class="form-label">Jenis Diskon</label>
+                            <select class="form-control" name="jenis_diskon" value="{{ $databukti->jenis_diskon }}" disabled>
+                                <option value="">Pilih Jenis Diskon</option>
+                                <option value="transaksi">Diskon Banyak Transaksi</option>
+                                <option value="toko">Diskon dari Toko</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="diskon" class="form-label">Diskon (%)</label>
+                            <input type="number" class="form-control" name="diskon" min="0" max="100" value="{{ $databukti->diskon }}" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col">
                             <label for="tgl_pinjam" class="form-label">Tanggal Pinjam</label>
-                            <input type="datetime-local" class="form-control" name="tgl_pinjam" value="{{$databukti->tgl_pinjam}}" disabled>
+                            <input type="datetime-local" class="form-control" name="tgl_pinjam" value="{{ $databukti->tgl_pinjam }}" disabled >
                         </div>
                         <div class="col">
                             <label for="tgl_selesai" class="form-label">Tanggal Selesai</label>
-                            <input type="datetime-local" class="form-control" name="tgl_selesai" value="{{$databukti->tgl_selesai}}" disabled>
+                            <input type="datetime-local" class="form-control" name="tgl_selesai" value="{{ $databukti->tgl_selesai }}" disabled >
                         </div>
                     </div>
                 </div>
-                <!-- <div class="mb-3">
-                    <div class="row">
-                        <div class="col">
-                            <label for="tahun_keluaran" class="form-label">Tahun Keluaran</label>
-                            <input type="text" class="form-control" name="tahun_keluaran">
-                        </div> -->
-                        <!-- <div class="col">
-                            <label for="file" class="form-label">Unggah File</label>
-                            <input type="file" class="form-control-file" name="file">
-                        </div> -->
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-success">Update</button>
                 <button onclick="history.back()" type="button" class="btn btn-danger">Batal</button>
             </form>
         </div>

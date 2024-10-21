@@ -71,10 +71,9 @@ Route::middleware([
     Route::prefix('datpens')->group(function(){
         Route::get('/view', [DatpenController::class, 'index'])->name('datpen.view');
         Route::get('/add', [DatpenController::class, 'create'])->name('datpen.add');
-        // Route::get('/add2', [DatpenController::class, 'create'])->name('datpen2.add');
-        Route::post('/datpen/store', [DatpenController::class, 'store'])->name('datpen.store');
+        Route::post('/store', [DatpenController::class, 'store'])->name('datpen.store');
         Route::get('/edit/{id}', [DatpenController::class, 'edit'])->name('datpen.edit');
-        Route::get('/update/{id}', [DatpenController::class, 'update'])->name('datpen.update');
+        Route::post('/update/{id}', [DatpenController::class, 'update'])->name('datpen.update');
         Route::get('/delete/{id}',[DatpenController::class, 'delete'])->name('datpen.delete');
         Route::get('/get', [AnggotaController::class, 'getData']);
         Route::get('/edit-bukti/{id}', [DatpenController::class, 'editbuktidatpen'])->name('buktidatpen.edit');
