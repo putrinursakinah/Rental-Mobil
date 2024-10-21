@@ -29,18 +29,18 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr class="text-center">
-                            <th>ID_MK</th>
-                            <th>ID_Mobil</th>
+                            {{-- <th>ID_MK</th>
+                            <th>ID_Mobil</th> --}}
                             <th>Nama</th>
                             <th>Email</th>
                             <th>No Telp</th>
                             <th>Alamat</th>
-                            <th>Merk Mobil</th>
+                            {{-- <th>Merk Mobil</th> --}}
                             {{-- <th>Jumlah</th>
                             <th>Jenis Diskon</th> --}}
-                            <th>Diskon</th> <!-- Tambahkan kolom Diskon -->
+                            {{-- <th>Diskon</th> <!-- Tambahkan kolom Diskon -->
                             <th>Tanggal Pinjam</th>
-                            <th>Tanggal Selesai</th>
+                            <th>Tanggal Selesai</th> --}}
                             <th>Action</th>
                         </tr>
                     </thead>

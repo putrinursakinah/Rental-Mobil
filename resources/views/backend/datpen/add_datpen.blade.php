@@ -14,14 +14,14 @@
         <div class="card-body">
             <form action="{{ route('datpen.store') }}" method="POST">
                 @csrf
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="id_mobil">PILIH MOBIL</label>
                     <select name="id_mobil" class="form-control">
                         @foreach ($mobil as $mobil)
                         <option value="{{ $mobil->id_mobil }}">{{ $mobil->merk }} - Stok: {{ $mobil->stok }}</option>
                         @endforeach
                     </select>
-                </div>
+                </div> --}}
                 {{-- <div class="mb-3">
                     <div class="row">
                         <div class="col">
