@@ -26,7 +26,7 @@ class Datpen extends Model
     ];
 
     public function mobil(){
-        return $this->belongsTo(Datmob::class, 'id_mobil', 'id_mobil');
+        return $this->belongsTo(Datmob::class, 'id_mobil');
     }
     public $timestamps = true;
     public function details()

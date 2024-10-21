@@ -64,7 +64,7 @@ class DatpenController extends Controller
         // Cek ketersediaan stok mobil
         $mobil = Datmob::where('id_mobil', $request->id_mobil)->first();
         if ($mobil->stok < $request->jumlah) {
-            return redirect()->back()->with('error', 'Stok mobil tidak mencukupi.');
+            return redirect()->back()->withErrors('error', 'Stok mobil tidak mencukupi.');
         }
 
         // Buat data penyewaan
@@ -105,6 +105,9 @@ class DatpenController extends Controller
     {
         $editpanitia = Datpen::find($id);
         $editanggota = Anggota::find($id);
+        if (!$editpanitia) {
+            return redirect()->back()->with('error', 'Data Penyewa tidak ditemukan.');
+        }
         return view('backend.datpen.edit_datpen', compact('editpanitia', 'editanggota'));
     }
 
@@ -113,24 +116,41 @@ class DatpenController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // Cari data penyewa (Datpen) berdasarkan ID
         $data = Datpen::find($id);
+        if (!$data) {
+            return redirect()->back()->with('error', 'Data Penyewa tidak ditemukan.');
+        }
+
+        // Update data penyewa 
+        $data->id_mk = $request->id_mk;
+        $data->id_mobil = $request->id_mobil;
         $data->nama = $request->nama;
-        $data->email = $request->email;
         $data->notelp = $request->notelp;
+        $data->email = $request->email;
         $data->alamat = $request->alamat;
         $data->merk_mobil = $request->merk_mobil;
         $data->jumlah = $request->jumlah;
+        $data->jenis_diskon = $request->jenis_diskon;
+        $data->diskon = $request->diskon;
         $data->tgl_pinjam = $request->tgl_pinjam;
         $data->tgl_selesai = $request->tgl_selesai;
         $data->update();
 
-        foreach ($request->penyewa as $key => $penyewas) {
-            $datapen = new Anggota;
-            $datapen->user_id = $penyewas;
-            $datapen->datpens_id = $data->id;
-            $datapen->update();
+        // Update data penyewa (Anggota) jika ada
+        if ($request->has('penyewa') && is_array($request->penyewa)) {
+            foreach ($request->penyewa as $penyewas) {
+                // Cek apakah data sudah ada atau buat baru
+                $datapen = new Anggota();
+                $datapen->user_id = $penyewas;
+                $datapen->datpens_id = $data->id;
+            }
+            // Simpan atau perbarui data
+            $datapen->save();
         }
-        return redirect()->route('datpen.view');
+
+        // Redirect setelah berhasil update
+        return redirect()->route('datpen.view')->with('messege', 'Data Berhasil Diupdate');
     }
 
     public function editbuktidatpen($id)
@@ -140,7 +160,7 @@ class DatpenController extends Controller
         return view('backend.datpen.bukti_datpen', compact('databukti', 'dataguru'));
     }
 
-    public function updatebuktidatpen(Request $request, $id)
+    public function updatebuktidatpen(Request $request,string $id)
     {
         $data = Datpen::find($id);
 
