@@ -20,13 +20,13 @@ class IndexController extends Controller
         $totalPenjualan = Dattran::sum('harga');
         $total = $totalPenjualan;
 
-        $totalPenyewa = Datpen::count('id_mk');
-        $penyewa = $totalPenyewa;
+        // $totalPenyewa = Datpen::count('id_mk');
+        // $penyewa = $totalPenyewa;
 
         $totalUser = Users::count('id');
         $user = $totalUser;
 
-        return view('admin.index', compact('mobil', 'total', 'penyewa', 'user'));
+        return view('admin.index', compact('mobil', 'total', 'user')); //'penyewa tak hapus
     }
 }
 

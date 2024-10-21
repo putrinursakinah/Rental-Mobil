@@ -1,5 +1,5 @@
 <?php
-
+//percobaan commit doang
 namespace App\Http\Controllers;
 
 use App\Models\Anggota;
@@ -31,8 +31,8 @@ class DatpenController extends Controller
      */
     public function create()
     {
-        $mobil = Datmob::all();
-        return view('backend.datpen.add_datpen', compact('mobil'));
+        // $mobil = Datmob::all();
+        // return view('backend.datpen.add_datpen', compact('mobil'));
 
         $anggota = DB::table('users')->get();
         return view('backend.datpen.add_datpen', compact('anggota'));
@@ -44,28 +44,28 @@ class DatpenController extends Controller
     public function store(Request $request)
     {
         // Cek jumlah transaksi sebelumnya
-        $jumlahTransaksi = Datpen::where('nama', $request->nama)->count();
+        // $jumlahTransaksi = Datpen::where('nama', $request->nama)->count();
 
-        $diskon = 0;
+        // $diskon = 0;
 
         // Logika untuk Diskon Banyak Transaksi
-        if ($request->jenis_diskon == 'transaksi') {
-            if ($jumlahTransaksi >= 10) {
-                $diskon = $request->diskon;
-            } else {
-                return redirect()->back()->with('error', 'Diskon Banyak Transaksi hanya berlaku untuk penyewa dengan 10 atau lebih transaksi.');
-            }
-        }
+        // if ($request->jenis_diskon == 'transaksi') {
+        //     if ($jumlahTransaksi >= 10) {
+        //         $diskon = $request->diskon;
+        //     } else {
+        //         return redirect()->back()->with('error', 'Diskon Banyak Transaksi hanya berlaku untuk penyewa dengan 10 atau lebih transaksi.');
+        //     }
+        // }
         // Logika untuk Diskon dari Toko
-        else if ($request->jenis_diskon == 'toko') {
-            $diskon = $request->diskon;
-        }
+        // else if ($request->jenis_diskon == 'toko') {
+        //     $diskon = $request->diskon;
+        // }
 
         // Cek ketersediaan stok mobil
-        $mobil = Datmob::where('id_mobil', $request->id_mobil)->first();
-        if ($mobil->stok < $request->jumlah) {
-            return redirect()->back()->withErrors('error', 'Stok mobil tidak mencukupi.');
-        }
+        // $mobil = Datmob::where('id_mobil', $request->id_mobil)->first();
+        // if ($mobil->stok < $request->jumlah) {
+        //     return redirect()->back()->withErrors('error', 'Stok mobil tidak mencukupi.');
+        // }
 
         // Buat data penyewaan
         $data = new Datpen();

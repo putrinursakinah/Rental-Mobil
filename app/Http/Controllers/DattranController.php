@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Exports\DattranExport;
 use App\Models\Anggota;
+use App\Models\Datpen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Dattran;
@@ -32,6 +33,9 @@ class DattranController extends Controller
      */
     public function create()
     {
+        $penyewa = Datpen::all();
+        return view('backend.dattran.add_dattran', compact('penyewa'));
+        
         return view('backend.dattran.add_dattran');
     }
 

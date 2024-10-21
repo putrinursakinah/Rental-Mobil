@@ -15,6 +15,26 @@
         <div class="card-body">
             <form method="POST" action="{{ route('dattran.store') }}" enctype="multipart/form-data">
                 @csrf
+
+                <div class="form-group">
+                    <label for="id_penyewa">Nama Penyewa</label>
+                    <select name="id_penyewa" class="form-control">
+                        <option value="">Pilih Penyewa</option>
+                        @foreach ($penyewa as $penyewa)
+                        
+                        <option value="{{ $penyewa->id_penyewa }}">{{ $penyewa->nama }} - {{ $penyewa->email }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                {{-- <div class="form-group">
+                    <label for="id_penyewa">Email</label>
+                    <select name="id_penyewa" class="form-control">
+                        @foreach ($penyewa as $penyewa)
+                        <option value="{{ $penyewa->id_penyewa }}">{{ $penyewa->email }}</option>
+                        @endforeach
+                    </select>
+                </div> --}}
+
                 <div class="mb-3">
                     <div class="row mb-2">
                         <div class="col">
