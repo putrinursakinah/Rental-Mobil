@@ -69,23 +69,23 @@ class DatpenController extends Controller
 
         // Buat data penyewaan
         $data = new Datpen();
-        $data->id_mk = $request->id_mk;
-        $data->id_mobil = $request->id_mobil;
+        // $data->id_mk = $request->id_mk;
+        // $data->id_mobil = $request->id_mobil;
         $data->nama = $request->nama;
         $data->notelp = $request->notelp;
         $data->email = $request->email;
         $data->alamat = $request->alamat;
-        $data->merk_mobil = $request->merk_mobil;
-        $data->jumlah = $request->jumlah;
-        $data->jenis_diskon = $request->jenis_diskon;
-        $data->diskon = $diskon; // Simpan diskon ke dalam database
-        $data->tgl_pinjam = $request->tgl_pinjam;
-        $data->tgl_selesai = $request->tgl_selesai;
+        // $data->merk_mobil = $request->merk_mobil;
+        // $data->jumlah = $request->jumlah;
+        // $data->jenis_diskon = $request->jenis_diskon;
+        // $data->diskon = $diskon; // Simpan diskon ke dalam database
+        // $data->tgl_pinjam = $request->tgl_pinjam;
+        // $data->tgl_selesai = $request->tgl_selesai;
         $data->save();
 
         // Kurangi stok mobil
-        $mobil->stok -= $request->jumlah;
-        $mobil->save();
+        // $mobil->stok -= $request->jumlah;
+        // $mobil->save();
 
         return redirect()->route('datpen.view')->with('message', 'Data Berhasil Ditambahkan');
     } 
@@ -123,18 +123,18 @@ class DatpenController extends Controller
         }
 
         // Update data penyewa 
-        $data->id_mk = $request->id_mk;
-        $data->id_mobil = $request->id_mobil;
+        // $data->id_mk = $request->id_mk;
+        // $data->id_mobil = $request->id_mobil;
         $data->nama = $request->nama;
         $data->notelp = $request->notelp;
         $data->email = $request->email;
         $data->alamat = $request->alamat;
-        $data->merk_mobil = $request->merk_mobil;
-        $data->jumlah = $request->jumlah;
-        $data->jenis_diskon = $request->jenis_diskon;
-        $data->diskon = $request->diskon;
-        $data->tgl_pinjam = $request->tgl_pinjam;
-        $data->tgl_selesai = $request->tgl_selesai;
+        // $data->merk_mobil = $request->merk_mobil;
+        // $data->jumlah = $request->jumlah;
+        // $data->jenis_diskon = $request->jenis_diskon;
+        // $data->diskon = $request->diskon;
+        // $data->tgl_pinjam = $request->tgl_pinjam;
+        // $data->tgl_selesai = $request->tgl_selesai;
         $data->update();
 
         // Update data penyewa (Anggota) jika ada
@@ -167,8 +167,8 @@ class DatpenController extends Controller
         $data->email = $request->email;
         $data->notelp = $request->notelp;
         $data->alamat = $request->alamat;
-        $data->merk_mobil = $request->merk_mobil;
-        $data->jumlah = $request->jumlah;
+        // $data->merk_mobil = $request->merk_mobil;
+        // $data->jumlah = $request->jumlah;
         $data->save();
 
         return redirect()->route('datpen.view')->with('message', 'Data Berhasil Diedit');

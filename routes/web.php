@@ -34,10 +34,6 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', [IndexController::class, 'index'])->name('admin.index');
     });
-<<<<<<< HEAD
-    });
-=======
->>>>>>> 27beb14ba7a84edf251a4bd616defc5d71318c14
 
 
 

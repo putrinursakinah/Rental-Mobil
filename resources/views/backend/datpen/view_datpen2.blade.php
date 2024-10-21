@@ -32,18 +32,18 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr class="text-center">
-                            <th>ID_MK</th>
-                            <th>ID_Mobil</th>
+                            {{-- <th>ID_MK</th>
+                            <th>ID_Mobil</th> --}}
                             <th>Nama</th>
                             <th>Email</th>
                             <th>No Telp</th>
                             <th>Alamat</th>
-                            <th>Merk Mobil</th>
-                            <th>Jumlah</th>
-                            <th>Jenis Diskon</th>
-                            <th>Diskon</th> <!-- Tambahkan kolom Diskon -->
-                            <th>Tanggal Pinjam</th>
-                            <th>Tanggal Selesai</th>
+                            {{-- <th>Merk Mobil</th>
+                            <th>Jumlah</th> --}}
+                            {{-- <th>Jenis Diskon</th>
+                            <th>Diskon</th> <!-- Tambahkan kolom Diskon --> --}}
+                            {{-- <th>Tanggal Pinjam</th>
+                            <th>Tanggal Selesai</th> --}}
                         </tr>
                     </thead>
                     <tfoot>
@@ -60,18 +60,18 @@
                         <?php $no = 1; ?>
                         @foreach ($data as $item => $datpen)
                             <tr class="text-center">
-                                <td>{{ $datpen->id_mk }}</td>
-                                <td>{{ $datpen->id_mobil }}</td>
+                                {{-- <td>{{ $datpen->id_mk }}</td>
+                                <td>{{ $datpen->id_mobil }}</td> --}}
                                 <td>{{ $datpen->nama }}</td>
                                 <td>{{ $datpen->email }}</td>
                                 <td>{{ $datpen->notelp }}</td>
                                 <td>{{ $datpen->alamat }}</td>
-                                <td>{{ $datpen->merk_mobil }}</td>
-                                <td>{{ $datpen->jumlah }}</td>
-                                <td>{{ $datpen->jenis_diskon }}</td>
-                                <td>{{ $datpen->diskon }}</td> <!-- Tampilkan Diskon di sini -->
-                                <td>{{ $datpen->tgl_pinjam }}</td>
-                                <td>{{ $datpen->tgl_selesai }}</td>
+                                {{-- <td>{{ $datpen->merk_mobil }}</td>
+                                <td>{{ $datpen->jumlah }}</td> --}}
+                                {{-- <td>{{ $datpen->jenis_diskon }}</td>
+                                <td>{{ $datpen->diskon }}</td> <!-- Tampilkan Diskon di sini --> --}}
+                                {{-- <td>{{ $datpen->tgl_pinjam }}</td>
+                                <td>{{ $datpen->tgl_selesai }}</td> --}}
                                 {{-- <td> --}}
                                     {{-- <a href="#" class="btn btn-warning btn-sm"><i class="fas fa-edit"> Edit</i></a>
                                     <a href="#" class="btn btn-danger btn-sm"><i class="fas fa-trash"> Delete</i></a> --}}

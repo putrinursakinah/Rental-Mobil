@@ -36,8 +36,8 @@
                             <th>No Telp</th>
                             <th>Alamat</th>
                             <th>Merk Mobil</th>
-                            <th>Jumlah</th>
-                            <th>Jenis Diskon</th>
+                            {{-- <th>Jumlah</th>
+                            <th>Jenis Diskon</th> --}}
                             <th>Diskon</th> <!-- Tambahkan kolom Diskon -->
                             <th>Tanggal Pinjam</th>
                             <th>Tanggal Selesai</th>
@@ -47,18 +47,18 @@
                     <tbody>
                         @foreach ($data as $datpen)
                             <tr class="text-center">
-                                <td>{{ $datpen->id_mk }}</td>
-                                <td>{{ $datpen->id_mobil }}</td>
+                                {{-- <td>{{ $datpen->id_mk }}</td>
+                                <td>{{ $datpen->id_mobil }}</td> --}}
                                 <td>{{ $datpen->nama }}</td>
                                 <td>{{ $datpen->email }}</td>
                                 <td>{{ $datpen->notelp }}</td>
                                 <td>{{ $datpen->alamat }}</td>
-                                <td>{{ $datpen->merk_mobil }}</td>
-                                <td>{{ $datpen->jumlah }}</td>
-                                <td>{{ $datpen->jenis_diskon }}</td>
-                                <td>{{ $datpen->diskon }}</td> <!-- Tampilkan Diskon di sini -->
-                                <td>{{ $datpen->tgl_pinjam }}</td>
-                                <td>{{ $datpen->tgl_selesai }}</td>
+                                {{-- <td>{{ $datpen->merk_mobil }}</td>
+                                <td>{{ $datpen->jumlah }}</td> --}}
+                                {{-- <td>{{ $datpen->jenis_diskon }}</td>
+                                <td>{{ $datpen->diskon }}</td> <!-- Tampilkan Diskon di sini --> --}}
+                                {{-- <td>{{ $datpen->tgl_pinjam }}</td>
+                                <td>{{ $datpen->tgl_selesai }}</td> --}}
                                 <td>
                                     <a href="{{ route('datpen.edit', $datpen->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"> Edit</i></a>
                                     <a href="{{ route('datpen.delete', $datpen->id) }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"> Delete</i></a>

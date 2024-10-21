@@ -22,7 +22,7 @@
         <div class="card-body">
             <form method="POST" action="{{ route('datpen.update', $editpanitia->id) }}" enctype="multipart/form-data">
                 @csrf
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <div class="row">
                         <div class="col">
                             <label for="id_mk" class="form-label">ID_MK</label>
@@ -33,7 +33,7 @@
                             <input type="text" class="form-control" name="id_mobil" value="{{ $editpanitia->id_mobil }}" required>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="mb-3">
                     <div class="row">
                         <div class="col">
@@ -58,7 +58,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <div class="row">
                         <div class="col">
                             <label for="merk_mobil" class="form-label">Merk Mobil</label>
@@ -69,8 +69,8 @@
                             <input type="text" class="form-control" name="jumlah" value="{{$editpanitia->jumlah}}" required>
                         </div>
                     </div>
-                </div>
-                <div class="mb-3">
+                </div> --}}
+                {{-- <div class="mb-3">
                     <div class="row">
                         <div class="col">
                             <label for="jenis_diskon" class="form-label">Jenis Diskon</label>
@@ -97,7 +97,7 @@
                             <input type="datetime-local" class="form-control" name="tgl_selesai" value="{{$editpanitia->tgl_selesai}}" required>
                         </div>
                     </div>
-                </div>  
+                </div>   --}}
             <button type="submit" class="btn btn-success">Update</button>
             <button onclick="history.back()" type="button" class="btn btn-danger">Batal</button>
             </form>
