@@ -13,18 +13,18 @@ return new class extends Migration
     {
         Schema::create('datpens', function (Blueprint $table) {
             $table->id();
-            $table->string('id_mk');
-            $table->string('id_mobil');
+            // $table->string('id_mk');
+            // $table->string('id_mobil');
             $table->string('nama');
             $table->string('notelp');
             $table->string('email');
             $table->string('alamat');
-            $table->string('merk_mobil');
-            $table->string('jumlah', 8, 2);
-            $table->string('jenis_diskon');
-            $table->string('diskon')->default(0);
-            $table->dateTime('tgl_pinjam');
-            $table->dateTime('tgl_selesai');
+            // $table->string('merk_mobil');
+            // $table->string('jumlah', 8, 2);
+            // $table->string('jenis_diskon');
+            // $table->string('diskon')->default(0);
+            // $table->dateTime('tgl_pinjam');
+            // $table->dateTime('tgl_selesai');
             $table->timestamps();
         });
     }

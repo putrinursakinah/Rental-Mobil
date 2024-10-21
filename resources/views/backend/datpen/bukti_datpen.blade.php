@@ -15,7 +15,7 @@
         <div class="card-body">
         <form method="POST" action="{{ route('buktidatpen.update', $databukti->id) }}" enctype="multipart/form-data">
                 @csrf
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <div class="row">
                         <div class="col">
                             <label for="id_mk" class="form-label">ID_MK</label>
@@ -26,8 +26,8 @@
                             <input type="text" class="form-control" name="id_mobil" value="{{ $databukti->id_mobil }}" disabled>
                         </div>
                     </div>
-                </div>
-                <div class="mb-3">
+                </div> --}}
+                {{-- <div class="mb-3">
                     <div class="row">
                         <div class="col">
                             <label for="id_mk" class="form-label">ID_MK</label>
@@ -38,7 +38,7 @@
                             <input type="text" class="form-control" name="id_mobil" value="{{ $databukti->id_mobil }}" disabled>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="mb-3">
                     <div class="row">
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <div class="row">
                         <div class="col">
                             <label for="merk_mobil" class="form-label">Merk Mobil</label>
@@ -76,8 +76,8 @@
                             <input type="text" class="form-control" name="jumlah">
                         </div>
                     </div>
-                </div>
-                <div class="mb-3">
+                </div> --}}
+                {{-- <div class="mb-3">
                     <div class="row">
                         <div class="col">
                             <label for="jenis_diskon" class="form-label">Jenis Diskon</label>
@@ -92,8 +92,8 @@
                             <input type="number" class="form-control" name="diskon" min="0" max="100" value="{{ $databukti->diskon }}" disabled>
                         </div>
                     </div>
-                </div>
-                <div class="mb-3">
+                </div> --}}
+                {{-- <div class="mb-3">
                     <div class="row">
                         <div class="col">
                             <label for="tgl_pinjam" class="form-label">Tanggal Pinjam</label>
@@ -104,7 +104,7 @@
                             <input type="datetime-local" class="form-control" name="tgl_selesai" value="{{ $databukti->tgl_selesai }}" disabled >
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <button type="submit" class="btn btn-success">Update</button>
                 <button onclick="history.back()" type="button" class="btn btn-danger">Batal</button>
             </form>
