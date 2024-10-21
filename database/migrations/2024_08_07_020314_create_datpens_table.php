@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('datpens', function (Blueprint $table) {
             $table->id();
             // $table->string('id_mk');
-            // $table->string('id_mobil');
+            $table->string('id_penyewa');
             $table->string('nama');
             $table->string('notelp');
             $table->string('email');

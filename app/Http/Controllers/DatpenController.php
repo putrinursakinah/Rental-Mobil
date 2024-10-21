@@ -31,8 +31,8 @@ class DatpenController extends Controller
      */
     public function create()
     {
-        $mobil = Datmob::all();
-        return view('backend.datpen.add_datpen', compact('mobil'));
+        // $mobil = Datmob::all();
+        // return view('backend.datpen.add_datpen', compact('mobil'));
 
         $anggota = DB::table('users')->get();
         return view('backend.datpen.add_datpen', compact('anggota'));
