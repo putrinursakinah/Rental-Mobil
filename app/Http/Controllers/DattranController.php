@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Exports\DattranExport;
 use App\Models\Anggota;
 use App\Models\Datpen;
+use App\Models\Datmob;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Dattran;
@@ -17,12 +18,14 @@ class DattranController extends Controller
     public function index()
     {
         if(Auth::user()->id=='1'){
-            $data = Dattran::all();
+
+            // Include mobil data using eager loading
+            $data = Dattran::with('mobil')->get();
             $totalHarga = Dattran::sum('harga');  // Menghitung total transaksi
             return view('backend.dattran.view_dattran', ['data' => $data, 'totalHarga' => $totalHarga]);
     } else {
         $user = Auth::user()->id;
-        $data = Dattran::all();
+        $data = Dattran::with('mobil')->get();
         $totalHarga = Dattran::sum('harga');
         return view('backend.dattran.view_dattran2', ['data' => $data, 'totalHarga' => $totalHarga]);
     }
@@ -33,10 +36,9 @@ class DattranController extends Controller
      */
     public function create()
     {
-        $penyewa = Datpen::all();
-        return view('backend.dattran.add_dattran', compact('penyewa'));
-        
-        return view('backend.dattran.add_dattran');
+        $penyewa = Datpen::all(); // Mengambil data penyewa
+        $mobil = Datmob::all(); // Mengambil data mobil
+        return view('backend.dattran.add_dattran', compact('penyewa', 'mobil'));
     }
 
     /**
@@ -44,13 +46,36 @@ class DattranController extends Controller
      */
     public function store(Request $request)
     {
+
+        // Cek ketersediaan stok mobil
+        $mobil = Datmob::where('id_mobil', $request->id_mobil)->first();
+
+        if (!$mobil){
+            return redirect()->back()->with('eror', 'Mobil tidak ditemukan.');
+        }
+
+        if ($mobil->stok < $request->jumlah) {
+            return redirect()->back()->with('error', 'Stok mobil tidak mencukupi.');
+        }
+
+        // Buat data penyewaan
         $data = new Dattran();
-        $data->nama = $request->nama;
-        $data->merk = $request->merk;
+        $data->id_mk = $request->id_mk;
+        $data->id_mobil = $request->id_mobil; // ambil id_mobil dari mmobil
+        $data->nama_mobil = $mobil->nama;  // ambil nama mobil dari data mobil
+        $data->jumlah = $request->jumlah;
+        $data->jenis_diskon = $request->jenis_diskon;
+        $data->diskon = $request->diskon;
         $data->tgl_pinjam = $request->tgl_pinjam;
         $data->tgl_kembali = $request->tgl_kembali;
-        $data->harga = $request->harga;
+        $data->harga = $request->harga; // harga total sudah dihitung di view
         $data->save();
+
+        // Kurangi stok mobil
+        $mobil = Datmob::find($request->id_mobil);
+        $mobil->stok -= $request->jumlah;
+        $mobil->save(); // simpan perubahan stok
+
 
         return redirect()->route('dattran.view')->with('message', 'Data Berhasil Ditambahkan');
     }
@@ -79,8 +104,11 @@ class DattranController extends Controller
     public function update(Request $request, string $id)
     {
         $data = Dattran::find($id);
-        $data->nama = $request->nama;
-        $data->merk = $request->merk;
+        $data->id_mk = $request->id_mk;
+        $data->id_mobil = $request->id_mobil;
+        $data->jumlah = $request->jumlah;
+        $data->jenis_diskon = $request->jenis_diskon;
+        $data->diskon = $request->diskon;
         $data->tgl_pinjam = $request->tgl_pinjam;
         $data->tgl_kembali = $request->tgl_kembali;
         $data->harga = $request->harga;

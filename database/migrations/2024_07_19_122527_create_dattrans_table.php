@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('dattrans', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('merk');
+            $table->string('id_mk');
+            $table->string('id_mobil');
+            $table->string('jumlah');
+            $table->string('jenis_diskon');
+            $table->string('diskon');
             $table->dateTime('tgl_pinjam');
             $table->dateTime('tgl_kembali');
             $table->decimal('harga', 15, 3)->default(0);

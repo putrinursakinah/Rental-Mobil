@@ -1,5 +1,5 @@
 @extends('admin.admin_master')
-@section('title','Data Transaksi2')
+@section('title', 'Data Transaksi')
 @section('admin')
 
 <div class="container-fluid">
@@ -11,14 +11,15 @@
             </button>
         </div>
     @endif
+    
     <div class="container">
         <div class="row">
             <div class="col">
                 <h1 class="h3 mb-2 text-gray-800">Data Transaksi</h1>
             </div>
-            <div class="co text-end mb-2">
+            <div class="col text-end mb-2">
                 <a href="{{ route('dattran.export') }}" class="btn btn-success">
-                    <i class="fas fa-file-export"></i> <!-- Font Awesome export icon -->
+                    <i class="fas fa-file-export"></i>
                 </a>
                 <a href="{{ route('dattran.add') }}">
                     <button type="button" class="btn btn-primary">Tambah Data</button>
@@ -30,33 +31,39 @@
     <div class="card shadow mb-4">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="80%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th><center>Nama Pelanggan</center></th>
-                            <th><center>Merk Mobil</center></th>
+                            <th><center>ID MK</center></th>
+                            <th><center>ID Mobil</center></th>
+                            <th><center>Jumlah</center></th>
+                            <th><center>Jenis Diskon</center></th>
+                            <th><center>Diskon</center></th>
                             <th><center>Tanggal Pinjam</center></th>
                             <th><center>Tanggal Kembali</center></th>
                             <th><center>Harga</center></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data as $item => $dattran)
+                        @foreach ($data as $dattran)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $dattran->nama }}</td>
-                            <td>{{ $dattran->merk }}</td>
+                            <td>{{ $dattran->id_mk }}</td>
+                            <td>{{ $dattran->id_mobil }}</td>
+                            <td>{{ $dattran->jumlah }}</td>
+                            <td>{{ $dattran->jenis_diskon }}</td>
+                            <td>{{ $dattran->diskon }}</td>
                             <td>{{ $dattran->tgl_pinjam }}</td>
                             <td>{{ $dattran->tgl_kembali }}</td>
-                            <td>Rp {{ number_format($dattran->harga, 3, ',', '.') }}</td>
+                            <td>Rp {{ number_format($dattran->harga, 0, ',', '.') }}</td>
                         </tr>
                         @endforeach
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="5" class="text-center"><strong>Total Semua Transaksi:</strong></td>
-                            <td><strong>Rp {{ number_format($totalHarga, 3, ',', '.') }}</strong></td>
+                            <td colspan="8" class="text-center"><strong>Total Semua Transaksi:</strong></td>
+                            <td><strong>Rp {{ number_format($totalHarga, 0, ',', '.') }}</strong></td>
                         </tr>
                     </tfoot>
                 </table>
@@ -64,4 +71,5 @@
         </div>
     </div>
 </div>
+
 @endsection

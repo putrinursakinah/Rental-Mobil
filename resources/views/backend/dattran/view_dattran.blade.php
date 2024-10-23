@@ -34,8 +34,12 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th><center>Nama Pelanggan</center></th>
-                            <th><center>Merk Mobil</center></th>
+                            <th><center>ID_MK</center></th>
+                            <th><center>ID_Mobil</center></th>
+                            <th><center>Nama Mobil</center></th>
+                            <th><center>Jumlah</center></th>
+                            <th><center>Jenis Diskon</center></th>
+                            <th><center>Diskon</center></th>
                             <th><center>Tanggal Pinjam</center></th>
                             <th><center>Tanggal Kembali</center></th>
                             <th><center>Harga</center></th>
@@ -46,8 +50,12 @@
                     @foreach ($data as $item => $dattran)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $dattran->nama }}</td>
-                            <td>{{ $dattran->merk }}</td>
+                            <td>{{ $dattran->id_mk }}</td>
+                            <td>{{ $dattran->id_mobil }}</td>
+                            <td>{{ $dattran->mobil->nama }} - {{ $dattran->mobil->merk }}</td> <!-- Menampilkan Nama Mobil -->
+                            <td>{{ $dattran->jumlah }}</td>
+                            <td>{{ $dattran->jenis_diskon }}</td>
+                            <td>{{ $dattran->diskon }}</td>
                             <td>{{ $dattran->tgl_pinjam }}</td>
                             <td>{{ $dattran->tgl_kembali }}</td>
                             <td>Rp {{ number_format($dattran->harga, 0, ',', '.') }}</td>
@@ -60,7 +68,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="5" class="text-center"><strong>Total Semua Transaksi:</strong></td>
+                            <td colspan="9" class="text-center"><strong>Total Semua Transaksi:</strong></td>
                             <td colspan="2"><strong>Rp {{ number_format($totalHarga, 0, ',', '.') }}</strong></td>
                         </tr>
                     </tfoot>

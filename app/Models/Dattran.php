@@ -19,4 +19,9 @@ class Dattran extends Model
     public function user(){
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function mobil()
+    {
+        return $this->belongsTo(Datmob::class, 'id_mobil');
+    }
 }

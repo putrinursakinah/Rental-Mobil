@@ -71,6 +71,7 @@ class DatpenController extends Controller
         $data = new Datpen();
         // $data->id_mk = $request->id_mk;
         // $data->id_mobil = $request->id_mobil;
+        $data->id_penyewa = $request->id_penyewa;
         $data->nama = $request->nama;
         $data->notelp = $request->notelp;
         $data->email = $request->email;
@@ -125,6 +126,7 @@ class DatpenController extends Controller
         // Update data penyewa 
         // $data->id_mk = $request->id_mk;
         // $data->id_mobil = $request->id_mobil;
+        $data->id_penyewa = $request->id_penyewa;
         $data->nama = $request->nama;
         $data->notelp = $request->notelp;
         $data->email = $request->email;
