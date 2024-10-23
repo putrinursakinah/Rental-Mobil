@@ -37,6 +37,10 @@
                 <div class="mb-3">
                     <div class="row">
                         <div class="col">
+                            <label for="id_penyewa" class="form-label">ID_Penyewa</label>
+                            <input type="text" class="form-control" name="id_penyewa" value="{{$editpanitia->id_penyewa}}" required>
+                        </div>
+                        <div class="col">
                             <label for="nama" class="form-label">Nama</label>
                             <input type="text" class="form-control" name="nama" value="{{$editpanitia->nama}}" required>
                         </div>

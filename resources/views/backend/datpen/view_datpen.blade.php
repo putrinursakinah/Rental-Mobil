@@ -31,6 +31,7 @@
                         <tr class="text-center">
                             {{-- <th>ID_MK</th>
                             <th>ID_Mobil</th> --}}
+                            <th>ID_Penyewa</th>
                             <th>Nama</th>
                             <th>Email</th>
                             <th>No Telp</th>
@@ -49,6 +50,7 @@
                             <tr class="text-center">
                                 {{-- <td>{{ $datpen->id_mk }}</td>
                                 <td>{{ $datpen->id_mobil }}</td> --}}
+                                <td>{{ $datpen->id_penyewa }}</td>
                                 <td>{{ $datpen->nama }}</td>
                                 <td>{{ $datpen->email }}</td>
                                 <td>{{ $datpen->notelp }}</td>

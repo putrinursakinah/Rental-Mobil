@@ -11,23 +11,12 @@ class Datpen extends Model
     protected $table = 'datpens';
     
     protected $fillable = [
-        'id_mk',
-        'id_mobil',
         'nama',
         'notlp',
         'email',
         'alamat',
-        'merk_mobil',
-        'jumlah',
-        'jenis_diskon',
-        'diskon',
-        'tgl_pinjam',
-        'tgl_selesai'
     ];
 
-    public function mobil(){
-        return $this->belongsTo(Datmob::class, 'id_mobil');
-    }
     public $timestamps = true;
     public function details()
     {
