@@ -46,38 +46,44 @@ class DattranController extends Controller
      */
     public function store(Request $request)
     {
-
-        // Cek ketersediaan stok mobil
+        // Validasi request untuk memastikan 'id_mobil' ada
+        $request->validate([
+            'id_mobil' => 'required|exists:datmobs,id_mobil',  // Pastikan mobil ada
+            'jumlah' => 'required|integer|min:1',
+            'harga' => 'required|numeric',
+        ]);
+        
+        // Cari mobil yang dipilih berdasarkan ID
         $mobil = Datmob::where('id_mobil', $request->id_mobil)->first();
-
-        if (!$mobil){
-            return redirect()->back()->with('eror', 'Mobil tidak ditemukan.');
+        
+        // Cek apakah mobil ditemukan
+        if (!$mobil) {
+            return redirect()->back()->with('error', 'Mobil tidak ditemukan.');
         }
 
+        // Cek apakah stok mencukupi
         if ($mobil->stok < $request->jumlah) {
             return redirect()->back()->with('error', 'Stok mobil tidak mencukupi.');
         }
 
-        // Buat data penyewaan
-        $data = new Dattran();
-        $data->id_mk = $request->id_mk;
-        $data->id_mobil = $request->id_mobil; // ambil id_mobil dari mmobil
-        $data->nama_mobil = $mobil->nama;  // ambil nama mobil dari data mobil
-        $data->jumlah = $request->jumlah;
-        $data->jenis_diskon = $request->jenis_diskon;
-        $data->diskon = $request->diskon;
-        $data->tgl_pinjam = $request->tgl_pinjam;
-        $data->tgl_kembali = $request->tgl_kembali;
-        $data->harga = $request->harga; // harga total sudah dihitung di view
-        $data->save();
+        // Buat transaksi baru
+        $transaksi = new Dattran();
+        $transaksi->id_mk = $request->id_mk;
+        $transaksi->id_mobil = $mobil->id_mobil;
+        $transaksi->nama_mobil = $mobil->nama;
+        $transaksi->jumlah = $request->jumlah;
+        $transaksi->jenis_diskon = $request->jenis_diskon;
+        $transaksi->diskon = $request->diskon;
+        $transaksi->tgl_pinjam = $request->tgl_pinjam;
+        $transaksi->tgl_kembali = $request->tgl_kembali;
+        $transaksi->harga = $request->harga;
+        $transaksi->save();
 
         // Kurangi stok mobil
-        $mobil = Datmob::find($request->id_mobil);
         $mobil->stok -= $request->jumlah;
-        $mobil->save(); // simpan perubahan stok
+        $mobil->save();
 
-
-        return redirect()->route('dattran.view')->with('message', 'Data Berhasil Ditambahkan');
+        return redirect()->route('dattran.view')->with('message', 'Transaksi berhasil ditambahkan dan stok diperbarui.');
     }
 
     /**
@@ -93,9 +99,11 @@ class DattranController extends Controller
      */
     public function edit(string $id)
     {
-        $editpanitia = Dattran::find($id);
+        $editpanitia = Dattran::find($id); // Transaksi yang akan diedit
+        $penyewa = Datpen::all(); // Data penyewa
+        $mobil = Datmob::all(); // Data mobil
         $editanggota = Anggota::find($id);
-        return view('backend.dattran.edit_dattran', compact('editpanitia', 'editanggota'));
+        return view('backend.dattran.edit_dattran', compact('editpanitia', 'penyewa', 'mobil', 'editanggota'));
     }
 
     /**
@@ -103,39 +111,70 @@ class DattranController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = Dattran::find($id);
-        $data->id_mk = $request->id_mk;
-        $data->id_mobil = $request->id_mobil;
-        $data->jumlah = $request->jumlah;
-        $data->jenis_diskon = $request->jenis_diskon;
-        $data->diskon = $request->diskon;
-        $data->tgl_pinjam = $request->tgl_pinjam;
-        $data->tgl_kembali = $request->tgl_kembali;
-        $data->harga = $request->harga;
-        $data->update();
+        // Validasi data
+        $request->validate([
+            'id_mobil' => 'required|exists:datmobs,id_mobil',
+            'jumlah' => 'required|integer|min:1',
+            'harga' => 'required|numeric',
+        ]);
 
-        foreach ($request->transaksi as $key => $transaksis) {
-            $dataTransaksi = new Anggota;
-            $dataTransaksi -> user_id = $transaksis;
-            $dataTransaksi -> dattrans_id = $data->id;
-            $dataTransaksi->update();
+        // Ambil data transaksi lama
+        $transaksi = Dattran::find($id);
+        $mobil = Datmob::where('id_mobil', $request->id_mobil)->first();
+
+        if (!$mobil) {
+            return redirect()->back()->with('error', 'Mobil tidak ditemukan.');
+        }
+
+        // Cek stok, jika jumlah yang baru berbeda dengan yang lama
+        if ($mobil->stok + $transaksi->jumlah < $request->jumlah) {
+            return redirect()->back()->with('error', 'Stok mobil tidak mencukupi.');
+        }
+
+        // update transaksi
+        $transaksi = Dattran::find($id);
+        $transaksi->id_mk = $request->id_mk;
+        $transaksi->id_mobil = $mobil->id_mobil;
+        $transaksi->nama_mobil = $mobil->nama;
+        $transaksi->jumlah = $request->jumlah;
+        $transaksi->jenis_diskon = $request->jenis_diskon;
+        $transaksi->diskon = $request->diskon;
+        $transaksi->tgl_pinjam = $request->tgl_pinjam;
+        $transaksi->tgl_kembali = $request->tgl_kembali;
+        $transaksi->harga = $request->harga;
+        $transaksi->update();
+
+        // Update stok mobil
+        $mobil->stok = ($mobil->stok + $transaksi->jumlah) - $request->jumlah;
+        $mobil->save();
+
+        return redirect()->route('dattran.view')->with('message', 'Transaksi berhasil diperbarui dan stok diperbarui.');
     }
-    return redirect()->route('dattran.view');
-}
 
     public function editbuktidattran($id){
-        $databukti = Dattran::find($id);
+        $databukti = Dattran::find($id); // Ambil data transaksi berdasarkan ID
+        $penyewa = Datpen::all(); // Data penyewa (jika perlu ditampilkan)
+        $mobil = Datmob::all(); // ambil data mobil
         $dataguru = Anggota::find($id);
-        return view('backend.dattran.bukti_dattran', compact('databukti', 'dataguru'));
+        return view('backend.dattran.bukti_dattran', compact('databukti', 'penyewa', 'mobil', 'dataguru'));
 }
 
-    public function updatebuktidattran(Request $request, $id){
-        $data = Dattran::find($id);
-        $data->tgl_pinjam = $request->tgl_pinjam;
-        $data->tgl_kembali = $request->tgl_kembali;
-        $data->save();
-        return redirect()->route('dattran.view')->with('message', 'Data Berhasil Diedit');
-    }
+    public function updatebuktidattran(Request $request, $id)
+    {
+        // Validasi tanggal
+    $request->validate([
+        'tgl_pinjam' => 'required|date',
+        'tgl_kembali' => 'required|date|after:tgl_pinjam',
+    ]);
+
+    // Update data transaksi
+    $transaksi = Dattran::find($id);
+    $transaksi->tgl_pinjam = $request->tgl_pinjam;
+    $transaksi->tgl_kembali = $request->tgl_kembali;
+    $transaksi->save();
+
+    return redirect()->route('dattran.view')->with('message', 'Data transaksi berhasil diperbarui.');
+}
 
     public function destroy(string $id)
     {

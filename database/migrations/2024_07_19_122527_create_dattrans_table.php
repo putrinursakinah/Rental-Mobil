@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('id_mk');
             $table->string('id_mobil');
+            $table->string('nama_mobil');
             $table->string('jumlah');
             $table->string('jenis_diskon');
             $table->string('diskon');

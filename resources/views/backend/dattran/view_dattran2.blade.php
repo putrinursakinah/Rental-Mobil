@@ -17,7 +17,7 @@
             <div class="col">
                 <h1 class="h3 mb-2 text-gray-800">Data Transaksi</h1>
             </div>
-            <div class="col text-end mb-2">
+            <div class="co text-end mb-2">
                 <a href="{{ route('dattran.export') }}" class="btn btn-success">
                     <i class="fas fa-file-export"></i>
                 </a>
@@ -35,8 +35,9 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th><center>ID MK</center></th>
-                            <th><center>ID Mobil</center></th>
+                            <th><center>ID_MK</center></th>
+                            <th><center>ID_Mobil</center></th>
+                            <th><center>Nama Mobil</center></th>
                             <th><center>Jumlah</center></th>
                             <th><center>Jenis Diskon</center></th>
                             <th><center>Diskon</center></th>
@@ -51,6 +52,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $dattran->id_mk }}</td>
                             <td>{{ $dattran->id_mobil }}</td>
+                            <td>{{ $dattran->mobil->nama }} - {{ $dattran->mobil->merk }}</td> <!-- Menampilkan Nama Mobil -->
                             <td>{{ $dattran->jumlah }}</td>
                             <td>{{ $dattran->jenis_diskon }}</td>
                             <td>{{ $dattran->diskon }}</td>
@@ -63,7 +65,7 @@
                     <tfoot>
                         <tr>
                             <td colspan="8" class="text-center"><strong>Total Semua Transaksi:</strong></td>
-                            <td><strong>Rp {{ number_format($totalHarga, 0, ',', '.') }}</strong></td>
+                            <td colspan="2"><strong>Rp {{ number_format($totalHarga, 0, ',', '.') }}</strong></td>
                         </tr>
                     </tfoot>
                 </table>
