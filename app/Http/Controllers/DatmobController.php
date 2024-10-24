@@ -99,6 +99,7 @@ class DatmobController extends Controller
     public function updatebukti(Request $request, $id){
         $data = Datmob::find($id);
         $data->stok = $request->stok;
+        $data->harga = $request->harga;
         $data->save();
         return redirect()->route('datmob.view');
    }
