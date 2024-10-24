@@ -36,9 +36,9 @@ class DattranController extends Controller
      */
     public function create()
     {
-        $penyewa = Datpen::all(); // Mengambil data penyewa
+        $p = Datpen::all(); // Mengambil data penyewa
         $mobil = Datmob::all(); // Mengambil data mobil
-        return view('backend.dattran.add_dattran', compact('penyewa', 'mobil'));
+        return view('backend.dattran.add_dattran', compact('p', 'mobil'));
     }
 
     /**
