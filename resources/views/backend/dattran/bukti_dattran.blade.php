@@ -21,16 +21,16 @@
                     <div class="row mb-2">
                         <div class="col">
                             <label for="id_mk" class="form-label">ID MK</label>
-                            <input type="text" class="form-control" name="id_mk" value="{{ $databukti->id_mk }}">
+                            <input type="text" class="form-control" name="id_mk" value="{{ $databukti->id_mk }}" disabled>
                         </div>
 
                         <!-- Pilih Mobil -->
                         <div class="col">
                             <label for="id_mobil" class="form-label">Nama Mobil</label>
-                            <select name="id_mobil" id="id_mobil" class="form-control" required>
+                            <select name="id_mobil" id="id_mobil" class="form-control" disabled>
                                 <option value="" disabled>Pilih Mobil</option>
                                 @foreach($mobil as $m)
-                                    <option value="{{ $m->id_mobil }}" {{ $databukti->id_mobil == $m->id_mobil ? 'selected' : '' }}>
+                                    <option value="{{ $m->id_mobil }}" {{ $databukti->id_mobil == $m->id_mobil ? 'selected' : '' }} disabled>
                                         {{ $m->nama }} (Stok: {{ $m->stok }})
                                     </option>
                                 @endforeach
@@ -40,7 +40,7 @@
                         <!-- Jumlah Mobil -->
                         <div class="col">
                             <label for="jumlah" class="form-label">Jumlah</label>
-                            <input type="number" class="form-control" name="jumlah" id="jumlah" value="{{ $databukti->jumlah }}" min="1">
+                            <input type="number" class="form-control" name="jumlah" id="jumlah" value="{{ $databukti->jumlah }}" min="1" disabled>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                     <div class="row">
                         <div class="col">
                             <label for="jenis_diskon" class="form-label">Jenis Diskon</label>
-                            <select class="form-control" name="jenis_diskon" required>
+                            <select class="form-control" name="jenis_diskon" disabled>
                                 <option value="">Pilih Jenis Diskon</option>
                                 <option value="transaksi" {{ $databukti->jenis_diskon == 'transaksi' ? 'selected' : '' }}>Diskon Banyak Transaksi</option>
                                 <option value="toko" {{ $databukti->jenis_diskon == 'toko' ? 'selected' : '' }}>Diskon dari Toko</option>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="col">
                             <label for="diskon" class="form-label">Diskon (%)</label>
-                            <input type="number" class="form-control" name="diskon" min="0" max="100" value="{{ $databukti->diskon }}">
+                            <input type="number" class="form-control" name="diskon" min="0" max="100" value="{{ $databukti->diskon }}" disabled>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                     <div class="row">
                         <div class="col">
                             <label for="harga" class="form-label">Harga</label>
-                            <input type="text" class="form-control" id="harga" name="harga" value="{{ $databukti->harga }}" disabled>
+                            <input type="text" class="form-control" id="harga" name="harga" value="{{ $databukti->harga }}" readonly>
                         </div>
                     </div>
                 </div>

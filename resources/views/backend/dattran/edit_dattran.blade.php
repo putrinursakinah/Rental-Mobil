@@ -21,7 +21,7 @@
                     <div class="row mb-2">
                         <div class="col">
                             <label for="id_mk" class="form-label">ID MK</label>
-                            <input type="text" class="form-control" name="id_mk" value="{{ $editpanitia->id_mk }}">
+                            <input type="text" class="form-control" name="id_mk" value="{{ $editpanitia->id_mk }}" required>
                         </div>
 
                         <!-- Pilih Mobil -->
@@ -40,7 +40,7 @@
                         <!-- Jumlah Mobil -->
                         <div class="col">
                             <label for="jumlah" class="form-label">Jumlah</label>
-                            <input type="number" class="form-control" name="jumlah" id="jumlah" value="{{ $editpanitia->jumlah }}" min="1">
+                            <input type="number" class="form-control" name="jumlah" id="jumlah" value="{{ $editpanitia->jumlah }}" min="1" required>
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="col">
                             <label for="diskon" class="form-label">Diskon (%)</label>
-                            <input type="number" class="form-control" name="diskon" min="0" max="100" value="{{ $editpanitia->diskon }}">
+                            <input type="number" class="form-control" name="diskon" min="0" max="100" value="{{ $editpanitia->diskon }}" required>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                     <div class="row">
                         <div class="col">
                             <label for="harga" class="form-label">Harga</label>
-                            <input type="text" class="form-control" id="harga" name="harga" value="{{ $editpanitia->harga }}" disabled>
+                            <input type="text" class="form-control" id="harga" name="harga" value="{{ $editpanitia->harga }}" required>
                         </div>
                     </div>
                 </div>
