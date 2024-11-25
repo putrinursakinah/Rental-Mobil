@@ -10,19 +10,19 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    // public function up(): void
-    // {
-    //     DB::unprepared('
-    //     CREATE TRIGGER mobil_masuk AFTER INSERT on stok_mobils
-    //     FOR EACH ROW 
-    //     BEGIN
-	//         UPDATE datmobs
-    //             set stok = stok + NEW.Jumlah
-    //         WHERE 
-    //             id_mobil = NEW.id_mobil;
-    //     END
-    //     ');
-    // }
+    public function up(): void
+    {
+        DB::unprepared('
+        CREATE TRIGGER mobil_masuk AFTER INSERT on stok_mobils
+        FOR EACH ROW 
+        BEGIN
+	        UPDATE datmobs
+                set stok = stok + NEW.Jumlah
+            WHERE 
+                id_mobil = NEW.id_mobil;
+        END
+        ');
+    }
 
     /**
      * Reverse the migrations.

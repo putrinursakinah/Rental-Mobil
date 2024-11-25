@@ -111,6 +111,6 @@ class DatmobController extends Controller
     {
         $deleteData = Datmob::find($id);
         $deleteData->delete();
-        return redirect()->route('datmob.view');
+        return redirect()->route('datmob.view')->with('message', 'Data Mobil Berhasil Dihapus!');
     }
 }
